@@ -2,41 +2,30 @@
 
 <html lang="fr">
   <head>
-    <!-- Basic Page Needs
-    ================================================== -->
+    <!-- Basic Page Needs ========================================= -->
     <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tardigrade Security Challenge</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="intechinfo.fr">
-    
-    <!-- Favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css"  href="{% static 'lobby/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lobby/fonts/font-awesome/css/font-awesome.css' %}">
 
     <!-- Slider
     ================================================== -->
-    <link href="css/owl.carousel.css" rel="stylesheet" media="screen">
-    <link href="css/owl.theme.css" rel="stylesheet" media="screen">
+    <link href="{% static 'lobby/css/owl.carousel.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'lobby/css/owl.theme.css' %}" rel="stylesheet" media="screen">
 
     <!-- Stylesheet
     ================================================== -->
-    <link rel="stylesheet" type="text/css"  href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css"  href="{% static 'lobby/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lobby/css/responsive.css' %}">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
-
-    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/modernizr.custom.js' %}"></script>
   </head>
 
 
@@ -53,18 +42,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Tardigrade</a>
+          <a class="navbar-brand" href="index.html">Tardigrade Security Challenge</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#tf-home" class="page-scroll">Home</a></li>
-            <li><a href="#tf-about" class="page-scroll">About</a></li>
-            <li><a href="#tf-team" class="page-scroll">Team</a></li>
+            <li><a href="#tf-home" class="page-scroll">Accueil</a></li>
+            <li><a href="#tf-about" class="page-scroll">A Propos</a></li>
+            <li><a href="#tf-team" class="page-scroll">Equipe</a></li>
             <li><a href="#tf-services" class="page-scroll">Services</a></li>
-            <li><a href="#tf-works" class="page-scroll">Portfolio</a></li>
-            <li><a href="#tf-testimonials" class="page-scroll">Testimonials</a></li>
+            <li><a href="#tf-works" class="page-scroll">Challenges</a></li>
+            <li><a href="#tf-testimonials" class="page-scroll">Livre D'or</a></li>
             <li><a href="#tf-contact" class="page-scroll">Contact</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -76,8 +65,8 @@
     <div id="tf-home" class="text-center">
         <div class="overlay">
             <div class="content">
-                <h1>Welcome on <strong><span class="color">Spirit8</span></strong></h1>
-                <p class="lead">We are a digital agency with <strong>years of experience</strong> and with <strong>extraordinary people</strong></p>
+                <h1>Bienvenue sur <strong><span class="color">Tardigrade Security Challenge</span></strong></h1>
+                <p class="lead">Nous vous proposons une plateforme avec <strong>de nombreux challenges</strong> et <strong>une communauté active</strong></p>
                 <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
             </div>
         </div>
@@ -88,30 +77,26 @@
     <div id="tf-about">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <img src="img/02.png" class="img-responsive">
+                <div class="col-md-5">
+                    <img src="{% static 'lobby/img/02.png' %}" class="img-responsive">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <div class="about-text">
                         <div class="section-title">
-                            <h4>About us</h4>
-                            <h2>Some words <strong>about us</strong></h2>
+                            <h4>A propos</h4>
+                            <h2>Quelques mots <strong>à propos de nous</strong></h2>
                             <hr>
                             <div class="clearfix"></div>
                         </div>
-                        <p class="intro">We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
+                        <p class="intro">Passioné de sécurité informatique, un groupe de 3 étudiants d'IN'TECH INFO, ont eu envie de créer une plateforme de challenges en sécurité.</p>
                         <ul class="about-list">
                             <li>
                                 <span class="fa fa-dot-circle-o"></span>
-                                <strong>Mission</strong> - <em>We deliver uniqueness and quality</em>
+                                <strong>Mission</strong> - <em>Délivré une plateforme de challenge fonctionnelle.</em>
                             </li>
                             <li>
                                 <span class="fa fa-dot-circle-o"></span>
-                                <strong>Skills</strong> - <em>Delivering fast and excellent results</em>
-                            </li>
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Clients</strong> - <em>Satisfied clients thanks to our experience</em>
+                                <strong>Compétences</strong> - <em>Projet développé en python.</em>
                             </li>
                         </ul>
                     </div>
@@ -126,7 +111,7 @@
         <div class="overlay">
             <div class="container">
                 <div class="section-title center">
-                    <h2>Meet <strong>our team</strong></h2>
+                    <h2>Découvrez <strong>notre équipe</strong></h2>
                     <div class="line">
                         <hr>
                     </div>
@@ -135,88 +120,88 @@
                 <div id="team" class="owl-carousel owl-theme row">
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Eric Lalitte</h3>
+                                <p>Client/Fondateur</p>
+                                <p>Directeur à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/02.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Alan Barthélémy</h3>
+                                <p>Développeur/Fondateur</p>
+                                <p>Etudiant en systèmes et réseaux à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Maxime Lauret</h3>
+                                <p>Développeur/Fondateur</p>
+                                <p>Etudiant en systèmes et réseaux à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Pierrick Veran</h3>
+                                <p>Développeur/Fondateur</p>
+                                <p>Etudiant en systèmes et réseaux à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="thumbnail">
-                            <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+                            <img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img">
                             <div class="caption">
-                                <h3>Jenn Gwapa</h3>
-                                <p>CEO / Founder</p>
-                                <p>Do not seek to change what has come before. Seek to create that which has not.</p>
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
                             </div>
                         </div>
                     </div>
@@ -231,37 +216,37 @@
     <div id="tf-services" class="text-center">
         <div class="container">
             <div class="section-title center">
-                <h2>Take a look at <strong>our services</strong></h2>
+                <h2>Jetez un oeil <strong>à nos services</strong></h2>
                 <div class="line">
                     <hr>
                 </div>
                 <div class="clearfix"></div>
-                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
+                <medium><em>Tardigrade Security Challenge propose 4 services à ses utilisateurs.</em></small>
             </div>
             <div class="space"></div>
             <div class="row">
                 <div class="col-md-3 col-sm-6 service">
                     <i class="fa fa-desktop"></i>
-                    <h4><strong>Web design</strong></h4>
-                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <h4><strong>Création d'un challenge</strong></h4>
+                    <p>Créez un challenge très facilement. voir la procédure d'envoi.</p>
                 </div>
 
                 <div class="col-md-3 col-sm-6 service">
                     <i class="fa fa-mobile"></i>
-                    <h4><strong>Mobile Apps</strong></h4>
-                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <h4><strong>Participation à un challenge</strong></h4>
+                    <p>Participez à plus de 1000 challenges.</p>
                 </div>
 
                 <div class="col-md-3 col-sm-6 service">
                     <i class="fa fa-camera"></i>
-                    <h4><strong>Photography</strong></h4>
-                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <h4><strong>Participation à un concours</strong></h4>
+                    <p>Participez à des concours en sécurité sur Paris. voir détails.</p>
                 </div>
 
                 <div class="col-md-3 col-sm-6 service">
                     <i class="fa fa-bullhorn"></i>
-                    <h4><strong>Marketing</strong></h4>
-                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <h4><strong>Defiez un ami</strong></h4>
+                    <p>Invitez vos amis à réalisés des challenges.</p>
                 </div>
             </div>
         </div>
@@ -274,32 +259,23 @@
             <div class="container">
 
                 <div class="section-title center">
-                    <h2>Some of <strong>our Clients</strong></h2>
+                    <h2>Présentation <strong>d'un évènement</strong></h2>
                     <div class="line">
                         <hr>
                     </div>
                 </div>
                 <div id="clients" class="owl-carousel owl-theme">
                     <div class="item">
-                        <img src="img/client/01.png">
+                        <br></br><br></br>
                     </div>
                     <div class="item">
-                        <img src="img/client/02.png">
+                        <br></br><br></br>
                     </div>
                     <div class="item">
-                        <img src="img/client/03.png">
+                        <br></br><br></br>
                     </div>
                     <div class="item">
-                        <img src="img/client/04.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/05.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/06.png">
-                    </div>
-                    <div class="item">
-                        <img src="img/client/07.png">
+                        <br></br><br></br>
                     </div>
                 </div>
 
@@ -312,26 +288,24 @@
     <div id="tf-works">
         <div class="container"> <!-- Container -->
             <div class="section-title text-center center">
-                <h2>Take a look at <strong>our services</strong></h2>
+                <h2>Jetez un oeil à <strong>nos catégories de challenges</strong></h2>
                 <div class="line">
                     <hr>
                 </div>
                 <div class="clearfix"></div>
-                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
+                <medium><em>Tardigrade Security Challenge propose des catégories de challenges</em></medium>
             </div>
             <div class="space"></div>
 
             <div class="categories">
                 
                 <ul class="cat">
-                    <li class="pull-left"><h4>Filter by Type:</h4></li>
+                    <li class="pull-left"><h4>Filtré par Type:</h4></li>
                     <li class="pull-right">
                         <ol class="type">
                             <li><a href="#" data-filter="*" class="active">All</a></li>
-                            <li><a href="#" data-filter=".web">Web Design</a></li>
-                            <li><a href="#" data-filter=".photography">Photography</a></li>
-                            <li><a href="#" data-filter=".app" >Mobile App</a></li>
-                            <li><a href="#" data-filter=".branding" >Branding</a></li>
+                            <li><a href="#" data-filter=".photography">Alphabétique</a></li>
+                            <li><a href="#" data-filter=".web">Popularité</a></li>
                         </ol>
                     </li>
                 </ul>
@@ -345,12 +319,12 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Système</h4>
+                                    <!--<small>Branding</small>-->
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/01.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/01.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -361,12 +335,11 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Script</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/02.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/02.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -377,12 +350,11 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Cracking</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/03.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/03.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -393,12 +365,11 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Programmation</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/04.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/04.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -409,12 +380,11 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Réseau</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/05.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/05.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -425,12 +395,11 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Reverse</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/06.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/06.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -441,12 +410,11 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Hacking</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/07.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/07.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -457,12 +425,11 @@
                         <div class="hover-bg">
                             <a href="#">
                                 <div class="hover-text">
-                                    <h4>Logo Design</h4>
-                                    <small>Branding</small>
+                                    <h4>Javascript</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="img/portfolio/08.jpg" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/portfolio/08.jpg' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -478,7 +445,7 @@
         <div class="overlay">
             <div class="container">
                 <div class="section-title center">
-                    <h2><strong>Our clients’</strong> testimonials</h2>
+                    <h2><strong>Le livre d'or</strong>de nos clients</h2>
                     <div class="line">
                         <hr>
                     </div>
@@ -516,26 +483,32 @@
                 <div class="col-md-8 col-md-offset-2">
 
                     <div class="section-title center">
-                        <h2>Feel free to <strong>contact us</strong></h2>
+                        <h2>Sentez-vous libre de <strong>nous contacter</strong></h2>
                         <div class="line">
                             <hr>
                         </div>
                         <div class="clearfix"></div>
-                        <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>            
+                        <medium><em>L'équipe Tardigrade Security Challenge fera son possible pour vous répondre dans les 24h.</em></medium>            
                     </div>
 
                     <form>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <label for="exampleInputEmail1">Adresse Mail</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="client@webmail.fr">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <label for="exampleInputPassword1">Prénom</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Prénom">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Nom</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nom">
                                 </div>
                             </div>
                         </div>
@@ -544,7 +517,7 @@
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn tf-btn btn-default">Submit</button>
+                        <button type="submit" class="btn tf-btn btn-default">Envoyer</button>
                     </form>
 
                 </div>
@@ -556,33 +529,33 @@
     <nav id="footer">
         <div class="container">
             <div class="pull-left fnav">
-                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2015. Designed by <a href="http://intechinfo.fr">Alababa</a> and Coded by <a href="http://intechinfo.fr">TSC Team</a></p>
             </div>
-            <div class="pull-right fnav">
+            <!--<div class="pull-right fnav">
                 <ul class="footer-social">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                 </ul>
-            </div>
+            </div>-->
         </div>
     </nav>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/jquery.1.11.1.js' %}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/SmoothScroll.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.js"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/SmoothScroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/jquery.isotope.js' %}"></script>
 
-    <script src="js/owl.carousel.js"></script>
+    <script src="{% static 'lobby/js/owl.carousel.js' %}"></script>
 
     <!-- Javascripts
     ================================================== -->
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/main.js' %}"></script>
 
   </body>
 </html>

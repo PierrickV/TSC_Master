@@ -5,5 +5,5 @@ from django.contrib import admin
 
 urlpatterns = [
 	 url(r'', include('lobby.urls')),
-	 url(r'^/accueil', include('lobby.urls'))
+	 url(r'^/home', include('lobby.urls'))
 ]

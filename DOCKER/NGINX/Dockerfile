@@ -13,29 +13,36 @@ ENV DJANGO_PRODUCTION=true
 ENV DEBIAN_FRONTEND noninteractive
 
 # Update and install packages
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN apt-get update && apt-get install -y \
 	nginx \
-	python3.4 \
-	python-pip \
-	javascript-common \
-	libjs-jquery \
 	supervisor \
-	python-mysqldb 
+	python3.4 \
+	python-dev \
+	python-mysqldb \
+	python-urllib3 \
+	python-pkg-resources \
+	python-sqlparse \
+	python-pip \
+	python3-tz \
+	libffi6 \
+	libssl1.0.0 \
+	libjs-jquery \
+	libpython3.4 \
+	libmysqlclient-dev \
+	javascript-common \
+	apt-utils \
+	wget \
+ && apt-get autoclean
 
-#	python-sqlparse \
-#	python-tz \
-#	libffi6 \
-#	libssl1.0.0 \	
-#	libpython3.4
-#	python-setuptools \
-#	python-urllib3 \
-#	apt-utils \
-
-RUN apt-get autoclean
-RUN mkdir /var/log/gunicorn
+RUN mkdir /var/log/gunicorn \
+ && mkdir /var/log/supervisord
 ADD . /code
+#ADD <source> <destination>
 WORKDIR /code
-RUN pip install -r requirements.txt
+
+# Install python requirement
+RUN pip install --upgrade -r requirements.txt
+RUN wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python
 
 # Expose ports
 # 80 = Nginx
@@ -43,11 +50,11 @@ RUN pip install -r requirements.txt
 EXPOSE 80 8000
 
 # Configure Nginx
-RUN cp /code/nginx.conf /etc/nginx/sites-available/django_docker.conf
-RUN ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf
-run rm /etc/nginx/sites-enabled/default
-RUN rm -r ../code
+RUN cp /code/nginx.conf /etc/nginx/sites-available/django_docker.conf \
+ && ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf \
+ && rm /etc/nginx/sites-enabled/default \
+ && rm -r ../code
 
 # Run Supervisor (i.e., start MySQL, Nginx, and Gunicorn)
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/python3.4","/usr/bin/supervisord"]

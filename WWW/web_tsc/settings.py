@@ -46,7 +46,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'lobby',
     'post_challenge',
-    'subscribe',
     'challenges'
 )
 

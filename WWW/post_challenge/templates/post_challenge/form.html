@@ -107,13 +107,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputCategory">Catégorie du challenge</label>
-                                    <select name="category" class="form-control" form="exampleInputCategory">
+                                    <select name="category" class="form-control" id="exampleInputCategory">
+                                        <option value="web" selected>Web</option>
                                         <option value="crackme">CrackMe</option>
                                         <option value="script">Scripting</option>
                                         <option value="reverse">Reverse</option>
-                                        <option value="web">Web</option>
                                         <option value="hacking">Hacking</option>
-                                        <option value="audi">Autres</option>
+                                        <option value="autres">Autres</option>
                                     </select>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputLevel">Difficulté du challenge (/5)</label>
-                                    <select name="category" class="form-control" form="exampleInputLevel">
+                                    <select name="category" class="form-control" id="exampleInputLevel">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -146,16 +146,32 @@
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputFile">Type de challenge</label>
-                                    <select name="category" class="form-control" form="exampleInputLevel">
+                                    <label for="exampleInputType">Type de challenge</label>
+                                    <select name="category" class="form-control" id="exampleInputType" >
                                         <option value="url">URL</option>
                                         <option value="text">Texte</option>
                                         <option value="zip">Fichier Zip</option>
-                                        <option value="tar.gz">Fichier Tar.gz</option>
+                                        <option value="tar">Fichier Tar.gz</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputLink">Votre challenge</label>
+                                    <div id = "default">
+                                        <input type='text' class='form-control'>
+                                    </div>
+                                    <div id = "link">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="row">
                             <div class="col-md-12">
                                <div class="form-group">
@@ -386,6 +402,29 @@
     <!-- Javascripts
     ================================================== -->
     <script type="text/javascript" src="{% static 'post_challenge/js/main.js' %}"></script>
+    <script>
+        $( "#exampleInputType" ).change(function() {
+          var input = $("#exampleInputType").val();
+          switch(input){
+            case "url":
+                $("#default").hide();
+                $("#link").html("<input type='text' class='form-control' name='url'>");
+            break;
+            case "text":
+                $("#default").hide();
+                $("#link").html("<textarea class='form-control' rows='3' name='inputext'></textarea>");
+            break;
+            case "zip":
+                $("#default").hide();
+                $("#link").html("<input type='file' name='zip'>");
+            break;
+            case "tar":
+                $("#default").hide();
+                $("#link").html("<input type='file' name='tar'>");
+            break;
+          } 
+        });
+    </script>
 
   </body>
 </html>

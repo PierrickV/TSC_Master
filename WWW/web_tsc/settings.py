@@ -32,7 +32,7 @@ ALLOWED_HOSTS = [
 #        'USER': '<django>',            # Utilisateur
 #        'PASSWORD': '<zIDCUiY55YwBOkQKbML2>',        # Mot de passe si nécessaire
 #        'HOST': '127.0.0.1',         # Utile si votre base de données est sur une autre machine
-#        'PORT': '',                  # ... et si elle utilise un autre port que celui par défaut
+#        'PORT': '3306',                  # ... et si elle utilise un autre port que celui par défaut
 #    }}
 
 # Application definition

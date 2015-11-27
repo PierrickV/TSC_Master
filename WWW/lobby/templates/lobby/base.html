@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <!-- Basic Page Needs ========================================= -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tardigrade Security Challenge</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="intechinfo.fr">
+
+    <!-- Bootstrap -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css"  href="{% static 'lobby/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lobby/fonts/font-awesome/css/font-awesome.css' %}">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="{% static 'lobby/css/owl.carousel.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'lobby/css/owl.theme.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'lobby/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lobby/css/responsive.css' %}">
+
+    <script type="text/javascript" src="{% static 'lobby/js/modernizr.custom.js' %}"></script>
+  </head>
+
+
+  <body>
+    <!-- Navigation
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url "lobby.views.home" %}">Tardigrade Security Challenge</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url "lobby.views.home" %}" class="page-scroll">Accueil</a></li>
+            <li><a href="{% url "challenges.views.home" %}" class="page-scroll">Challenges</a></li>
+            <li>
+                {% block nav-right %}<a class="btn btn-lg" data-toggle="modal" data-target="#myModal">Connexion</a> {% endblock %}
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title"><b>Qui êtes vous ?</b></h4>
+                            </div>
+                            
+
+                            <div class="form_co">
+                                <div class="modal-body">
+                                <p></p>
+                                <form class="form-horizontal" method="POST">
+                                <fieldset>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                  <label class="col-md-3 control-label" for="name"></label>  
+                                  <div class="col-md-6">
+                                  <input id="name" name="username" type="text" placeholder="Identité" class="form-control input-md" required="">
+                                    
+                                  </div>
+                                </div>
+
+                                <!-- Password input-->
+                                <div class="form-group">
+                                  <label class="col-md-3 control-label" for="password"></label>
+                                  <div class="col-md-6">
+                                    <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md" required="">
+                                    
+                                  </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="row">
+                                        <br>
+                                        <div class="col-lg-4"></div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-success btn-lg">Se connecter </button>
+                                        </div>
+                                        <div class="col-md-1">
+                                        <div class="col-md-5"></div>
+                                        <div class="col-md-3">
+                                                <input type="button" id="subscribe" name="subscribe" value="S'inscrire" class="btn btn-default btn-lg">
+                                        </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                </form>               
+                                </div>
+                            </div>
+
+                            <div class="form_sub">
+                                <div class="modal-body">
+                                <p></p>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-5">
+                                                <div class="form-group">
+                                                <label for="exampleInputEmail1">Adresse Mail</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="client@webmail.fr">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="exampleInputFirstname">Prénom</label>
+                                                <input type="password" class="form-control" id="exampleInputFirstname" placeholder="Prénom">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="exampleInputLastname">Nom</label>
+                                                <input type="password" class="form-control" id="exampleInputLasname" placeholder="Nom">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-5">
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                              <label for="loginName">Username</label>  
+                                              <input id="loginName" type="text" placeholder="Identité" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword">Mot de passe</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2">Confirmation du mot de passe</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-5">
+                                           <div class="form-group">
+                                            <label for="exampleInputDescription">Description (Optionnel)</label>
+                                            <textarea class="form-control" rows="3" placeholder="Organisation, Job, Passion..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row">
+                                        <br>
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-success btn-lg">S'inscrire </button>
+                                        </div>
+                                        <div class="col-md-1">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-3">
+                                                <input type="button" id="connect" name="connect" value="Se connecter" class="btn btn-default btn-lg">
+                                        </div>
+                                        </div>
+                                    </div>
+                                
+                                </form>
+                                <fieldset>              
+                            </div>
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- Home Page
+    ==========================================-->
+    <div id="tf-home" class="text-center">
+        <div class="overlay">
+            <div class="content">
+                <h1>Bienvenue sur <strong><span class="color">Tardigrade Security Challenge</span></strong></h1>
+                <p class="lead">Nous vous proposons une plateforme avec <strong>de nombreux challenges</strong> et <strong>une communauté active</strong></p>
+                <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Page
+    ==========================================-->
+    <div id="tf-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{% static 'lobby/img/02.png' %}" class="img-responsive">
+                </div>
+                <div class="col-md-7">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h2>Quelques mots <strong>à propos de nous</strong></h2>
+                            <hr>
+                            <div class="clearfix"></div>
+                        </div>
+                        <p class="intro">Passioné de sécurité informatique, un groupe de 3 étudiants d'IN'TECH INFO, ont eu envie de créer une plateforme de challenges en sécurité.</p>
+                        <ul class="about-list">
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Mission</strong> - <em>Délivré une plateforme de challenge fonctionnelle.</em>
+                            </li>
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Compétences</strong> - <em>Projet développé en python.</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Page
+    ==========================================-->
+    <div id="tf-team" class="text-center">
+        <div class="overlay">
+            <div class="container">
+                <div class="section-title center">
+                    <h2>Découvrez <strong>notre équipe</strong></h2>
+                    <div class="line">
+                        <hr>
+                    </div>
+                </div>
+
+                <div id="team" class="owl-carousel owl-theme row">
+                    <div class="item">
+                        <div class="thumbnail">
+                            <a href="https://www.linkedin.com/in/elalitte"><img src="{% static 'lobby/img/team/01.jpg' %}" alt="..." class="img-circle team-img"></a>
+                            <div class="caption">
+                                <h3>Eric Lalitte</h3>
+                                <p>Client/Fondateur</p>
+                                <p>Directeur à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <a href="https://fr.linkedin.com/in/alanbarthelemy"><img src="{% static 'lobby/img/team/02.jpg' %}" alt="..." class="img-circle team-img"></a>
+                            <div class="caption">
+                                <h3>Alan Barthélémy</h3>
+                                <p>Chef de projet</p>
+                                <p>Etudiant en systèmes et réseaux à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'lobby/img/team/00.png' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Maxime Lauret</h3>
+                                <p>Responsable Communication</p>
+                                <p>Etudiant en systèmes et réseaux à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <a href="https://www.linkedin.com/in/pierrick-veran-4044a3100"><img src="{% static 'lobby/img/team/00.png' %}" alt="..." class="img-circle team-img"></a>
+                            <div class="caption">
+                                <h3>Pierrick Veran</h3>
+                                <p>Responsable Architecture</p>
+                                <p>Etudiant en systèmes et réseaux à IN'TECH INFO (Groupe ESIEA) basé à Ivry-sur-seine.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'lobby/img/team/00.png' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'lobby/img/team/00.png' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'lobby/img/team/00.png' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="thumbnail">
+                            <img src="{% static 'lobby/img/team/00.png' %}" alt="..." class="img-circle team-img">
+                            <div class="caption">
+                                <h3>Inconnu</h3>
+                                <p>Inconnu</p>
+                                <p>Inconnu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section
+    ==========================================-->
+    <div id="tf-services" class="text-center">
+        <div class="container">
+            <div class="section-title center">
+                <h2>Jetez un oeil <strong>à nos services</strong></h2>
+                <div class="line">
+                    <hr>
+                </div>
+                <div class="clearfix"></div>
+                <medium><em>Tardigrade Security Challenge propose 4 services à ses utilisateurs.</em></medium>
+            </div>
+            <div class="space"></div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 service">
+                    <i class="fa fa-pencil"></i>
+                    <h4><strong>Création d'un challenge</strong></h4>
+                    <p>Créez un challenge très facilement. voir la procédure d'envoi.</p>
+                </div>
+
+                <div class="col-md-3 col-sm-6 service">
+                    <i class="fa fa-flag"></i>
+                    <h4><strong>Participation à un challenge</strong></h4>
+                    <p>Participez à plus de 1000 challenges.</p>
+                </div>
+
+                <div class="col-md-3 col-sm-6 service">
+                    <i class="fa fa-map-marker"></i>
+                    <h4><strong>Participation à un concours</strong></h4>
+                    <p>Participez à des concours en sécurité sur Paris. voir détails.</p>
+                </div>
+
+                <div class="col-md-3 col-sm-6 service">
+                    <i class="fa fa-refresh"></i>
+                    <h4><strong>Defiez un ami</strong></h4>
+                    <p>Invitez vos amis à réalisés des challenges.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clients Section
+    ==========================================-->
+    <div id="tf-clients" class="text-center">
+        <div class="overlay">
+            <div class="container">
+
+                <div class="section-title center">
+                    <h2>Présentation <strong>d'un évènement</strong></h2>
+                    <div class="line">
+                        <hr>
+                    </div>
+                </div>
+                <div id="clients" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <br></br><br></br>
+                    </div>
+                    <div class="item">
+                        <br></br><br></br>
+                    </div>
+                    <div class="item">
+                        <br></br><br></br>
+                    </div>
+                    <div class="item">
+                        <br></br><br></br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Section
+    ==========================================-->
+    <div id="tf-works">
+        <div class="container"> <!-- Container -->
+            <div class="section-title text-center center">
+                <h2>Jetez un oeil à <strong>nos catégories de challenges</strong></h2>
+                <div class="line">
+                    <hr>
+                </div>
+                <div class="clearfix"></div>
+                <medium><em>Tardigrade Security Challenge propose des catégories de challenges</em></medium>
+            </div>
+            <div class="space"></div>
+
+            <div class="categories">
+                
+                <ul class="cat">
+                    <li class="pull-left"><h4>Filtré par Type:</h4></li>
+                    <li class="pull-right">
+                        <ol class="type">
+                            <li><a href="#" data-filter="*" class="active">All</a></li>
+                            <li><a href="#" data-filter=".photography">Alphabétique</a></li>
+                            <li><a href="#" data-filter=".web">Popularité</a></li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+            <div id="lightbox" class="row">
+
+                <div class="col-sm-6 col-md-3 col-lg-3 branding">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Système</h4>
+                                    <!--<small>Branding</small>-->
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/01.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 photography">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Script</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/02.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Cracking</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/03.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 photography">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Programmation</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/04.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Réseau</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/05.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Reverse</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/06.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 photography web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Hacking</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/07.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>Javascript</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/portfolio/08.jpg' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section
+    ==========================================-->
+    <div id="tf-testimonials" class="text-center">
+        <div class="overlay">
+            <div class="container">
+                <div class="section-title center">
+                    <h2><strong>Le livre d'or </strong>de nos clients</h2>
+                    <div class="line">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div id="testimonial" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <h5>Ce site est très bien fait avec des challenges très divers et fun.</h5>
+                                <p><strong>Julien Cartier</strong>, Etudiant</p>
+                            </div>
+
+                            <div class="item">
+                                <h5>Challenges très intéressant et divers.</h5>
+                                <p><strong>Simon Hallay</strong>, Etudiant</p>
+                            </div>
+
+                            <div class="item">
+                                <h5>Site super instructif, j'ai appris beaucoup de choses sur la sécurité informatique</h5>
+                                <p><strong>Rami Morri</strong>, Développeur</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section
+    ==========================================-->
+    <div id="tf-contact" class="text-center">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+
+                    <div class="section-title center">
+                        <h2>Sentez-vous libre de <strong>nous contacter</strong></h2>
+                        <div class="line">
+                            <hr>
+                        </div>
+                        <div class="clearfix"></div>
+                        <medium><em>L'équipe Tardigrade Security Challenge fera son possible pour vous répondre dans les 24h.</em></medium>            
+                    </div>
+
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Adresse Mail</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="client@webmail.fr">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Prénom</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Prénom">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Nom</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nom">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Message</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn tf-btn btn-default">Envoyer</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2015. Designed by <a href="http://intechinfo.fr">Alababa</a> and Coded by <a href="http://intechinfo.fr">TSC Team</a></p>
+            </div>
+            <!--<div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>-->
+        </div>
+    </nav>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/jquery.1.11.1.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="{% static 'lobby/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/SmoothScroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lobby/js/jquery.isotope.js' %}"></script>
+
+    <script src="{% static 'lobby/js/owl.carousel.js' %}"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'lobby/js/main.js' %}"></script>
+    <script>
+    $(document).ready(function(){
+        $(".form_sub").hide();
+        $("#subscribe").click(function(){
+            $(".form_sub").fadeIn();
+            $(".form_co").hide(); 
+        });
+        $("#connect").click(function(){
+            $(".form_sub").hide();
+            $(".form_co").fadeIn();
+        });
+    });
+    </script>
+
+  </body>
+</html>

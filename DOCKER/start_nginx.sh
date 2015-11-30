@@ -4,7 +4,7 @@
 
 docker run -it \
  --name tsc_web \
- -v //c/wamp/www/Intech/Projets/S5/PI/Web/tardigrade_security_challenge/WWW:/var/www:ro \
+ -v "/home/alababa/Lien vers tardigrade_security_challenge/WWW":/var/www:ro \
  -p 127.0.0.1:80:80 \
  -d tsc/master:Web \
  /bin/bash

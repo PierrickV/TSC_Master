@@ -50,6 +50,8 @@ RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
 && mkdir /var/log/gunicorn
 
 # Run Supervisor (i.e., start Nginx, and Gunicorn)
-COPY /config_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY /config_files/supervisord.conf /etc/supervisor/supervisord.conf
+COPY /config_files/supervisord_nginx_gunicorn.conf /etc/supervisor/conf.d/supervisord_nginx_gunicorn.conf
+
 #CMD /bin/bash
-CMD /usr/bin/supervisord -n
+CMD ["/usr/bin/supervisord"]

@@ -4,6 +4,7 @@
 
 docker run \
  --name tsc_database \
+ --restart=always \
  -e MYSQL_ROOT_PASSWORD="zIDCUiY55YwBOkQKbML2"  \
  -v //c/wamp/www/Intech/Projets/S5/PI/Web/tardigrade_security_challenge/WWW:/var/lib/mysql \
  -p 127.0.0.1:3306:3306 \

@@ -2,6 +2,7 @@
 # Pierrick VERAN - Tardigrade Security Challenge - 09/11/2015
 # Create nginx-django container link with tsc's webfiles
 # Container should be launch with start_nginx.sh script
+# Use "docker build --tag=tsc/master:Web . " to build nginx image
 FROM debian:jessie
 MAINTAINER veran@intechinfo.fr
 
@@ -22,7 +23,6 @@ RUN apt-get update && apt-get install -y \
 	python-gevent \
 	libffi6 \
 	libssl1.0.0 \
-	libjs-jquery \
 	libmysqlclient-dev \
 	javascript-common \
 	apt-utils \
@@ -31,35 +31,25 @@ RUN apt-get update && apt-get install -y \
 	git \
 && apt-get autoclean
 
-#	python-sqlparse \
-#	python-mysqldb \
-
-ADD . /code
-#ADD <source> <destination>
-WORKDIR /code
+ADD config_files config_files
+WORKDIR /config_files
 
 # Install python requirement,install and patch gevent, install and patch setuptools installation and change python default version
 RUN pip3 install --upgrade -r requirements.txt \
 && wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python \
 && ln -sf /usr/bin/python3.4 /usr/local/bin/python
 
-#&& pip3 install 'cython>=0.23.4' git+git://github.com/gevent/gevent.git#egg=gevent \
-
 # Expose ports
 # 80 = Nginx
-# 8000 = Gunicorn
-EXPOSE 80 8000
+EXPOSE 80
 
 # Configure Nginx
-RUN cp /code/nginx.conf /etc/nginx/sites-available/django_docker.conf \
+RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
 && ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf \
 && rm /etc/nginx/sites-enabled/default \
 && mkdir /var/log/gunicorn
-# && cp /etc/nginx/sites-available/django_docker.conf /etc/nginx/nginx.conf
-# \ && rm -r ../code
-
 
 # Run Supervisor (i.e., start Nginx, and Gunicorn)
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-#CMD ["/usr/bin/python3.4","/home/lilyus/Git/TSC/DOCKER/NGINX/initialize.sh"]
-ENTRYPOINT /usr/bin/supervisord
+COPY /config_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+#CMD /bin/bash
+CMD /usr/bin/supervisord -n

@@ -4,7 +4,7 @@
 
 docker run -it \
  --name tsc_web \
- -v //c/wamp/www/Intech/Projets/S5/PI/Web/tardigrade_security_challenge/WWW:/var/www:ro \
+ --restart=always \
+ -v /home/lilyus/Git/TSC/WWW/:/var/www:ro \
  -p 127.0.0.1:80:80 \
- -d tsc/master:Web \
- /bin/bash
+ -d tsc/master:Web

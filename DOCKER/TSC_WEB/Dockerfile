@@ -1,7 +1,7 @@
 #!/bin/bash
 # Pierrick VERAN - Tardigrade Security Challenge - 09/11/2015
-# Create nginx-django container link with tsc's webfiles
-# Container should be launch with start_nginx.sh script
+# Create nginx-gunicorn-django container link with tsc's webfiles
+# Container should be launch with start_web.sh script
 # Use "docker build --tag=tsc/master:Web . " to build nginx image
 FROM debian:jessie
 MAINTAINER veran@intechinfo.fr

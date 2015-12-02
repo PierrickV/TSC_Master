@@ -1,6 +1,6 @@
 #!/bin/bash
 # Pierrick VERAN - Tardigrade Security Challenge - 09/11/2015
-# Launch nginx-django container link with tsc's webfiles
+# Launch nginx-gunicorn-django container link with tsc's webfiles
 
 docker run -it \
  --name tsc_web \

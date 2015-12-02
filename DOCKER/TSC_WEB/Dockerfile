@@ -6,9 +6,7 @@
 FROM debian:jessie
 MAINTAINER veran@intechinfo.fr
 
-# Enable production settings by default; for development, this can be set to 
-# `false` in `docker run --env`
-ENV DJANGO_PRODUCTION=true
+# Environment variables
 ENV DJANGO_SETTINGS_MODULE="settings"
 ENV PYTHONPATH="/var/www/"
 
@@ -29,6 +27,7 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	nginx \
 	git \
+	sshfs \
 && apt-get autoclean
 
 ADD config_files config_files
@@ -48,6 +47,12 @@ RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
 && ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf \
 && rm /etc/nginx/sites-enabled/default \
 && mkdir /var/log/gunicorn
+
+# Configure SSH and mount SSHFS
+RUN echo "ServerAliveInterval 120" >> /etc/ssh/ssh_config \
+&& mkdir /var/challenges/ \
+&& sshfs -o IdentityFile=/config_files web_tsc@10.8.99.111:/var/ /var/challenges/
+
 
 # Run Supervisor (i.e., start Nginx, and Gunicorn)
 COPY /config_files/supervisord.conf /etc/supervisor/supervisord.conf

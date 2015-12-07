@@ -1,5 +1,8 @@
 #!/bin/bash
+# Pierrick VERAN - Tardigrade Security Challenge - 07/12/2015
+# Launch registry container for TSC private hub
+
 docker run -d \
--p 127.0.0.1:5000:5000 \
+-p 5000:5000 \
 --restart=always \
 --name registry registry:2

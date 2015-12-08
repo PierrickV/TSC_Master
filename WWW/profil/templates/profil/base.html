@@ -60,78 +60,70 @@
     <div id="tf-contact" class="text-center">
         <div class="container">
             <div class="section-title center">
-                {% block title %}<h2>Tous les<strong> Challenges</strong></h2>{% endblock %}
-                <div class="line">
-                    <hr>
                 </div>
                 <div class="clearfix"></div>
-                {% block description %}<medium><em>Ces épreuves vous permettront de vous améliorer.</em></medium>{% endblock %}
             </div>
             <div class="space"></div>
             <div class="row">
-                {% block tableau %}
-                <div class="container">        
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Résultat</th>
-                        <th>Nom de l'épreuve</th>
-                        <th>Nombre de points</th>
-                        <th>Difficulté</th>
-                        <th>Auteur</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/check.png' %}" alt="check" height="15" width="15"></td>
-                        <td>SQL Injection</td>
-                        <td>10</td>
-                        <td>1/5</td>
-                        <td><a href="#">Alababa</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>Javascript - Authentification</td>
-                        <td>15</td>
-                        <td>2/5</td>
-                        <td><a href="#">Pierrick</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>SQL Injection</td>
-                        <td>10</td>
-                        <td>1/5</td>
-                        <td><a href="#">Alababa</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>Javascript - Authentification</td>
-                        <td>15</td>
-                        <td>2/5</td>
-                        <td><a href="#">Pierrick</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>SQL Injection</td>
-                        <td>10</td>
-                        <td>1/5</td>
-                        <td><a href="#">Alababa</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>Javascript - Authentification</td>
-                        <td>15</td>
-                        <td>2/5</td>
-                        <td><a href="#">Pierrick</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
+            <!-- About Us Page
+            ==========================================-->
+            <div id="tf-about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="{% static 'profil/img/0O.png' %}" class="img-responsive">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="about-text">
+                                <div class="section-title">
+                                    <h2>Informations sur <strong>Maxime</strong></h2>
+                                    <hr>
+                                    <div class="clearfix"></div>
+                                </div>
+                                {% block date_registration %}<medium><em>Inscrit le 10/12/2015</em></medium>{% endblock %}
+                                <p class="intro">Responsable communication de tsc, développeur.</p>
+                                <ul class="about-list">
+                                    <li align="left">
+                                        <span class="fa fa-dot-circle-o"></span>
+                                        <strong>Pseudo</strong> - <em>MAx La MenAcE</em>
+                                    </li>
+                                </ul>
+                                <ul class="about-list">
+                                    <li align="left">
+                                        <span class="fa fa-dot-circle-o"></span>
+                                        <strong>Nom</strong> - <em>Lauret</em>
+                                    </li>
+                                </ul>
+                                <ul class="about-list">
+                                    <li align="left">
+                                        <span class="fa fa-dot-circle-o"></span>
+                                        <strong>Prénom</strong> - <em>Maxime</em>
+                                    </li>
+                                </ul>
+                                <ul class="about-list">
+                                    <li align="left">
+                                        <span class="fa fa-dot-circle-o"></span>
+                                        <strong>Adresse Email</strong> - <em><i>non affiché</i></em>
+                                    </li>
+                                </ul>
+                                <ul class="about-list">
+                                    <li align="left">
+                                        <span class="fa fa-dot-circle-o"></span>
+                                        <strong>Nombre d'épreuves validé</strong> - <em>4</em>
+                                    </li>
+                                </ul>
+                                <ul class="about-list">
+                                    <li align="left">
+                                        <span class="fa fa-dot-circle-o"></span>
+                                        <strong>Classement</strong> - <em>8/238</em>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {% endblock %}
-                <br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br>
+            </div>
+                
                 <br><br><br><br><br><br><br><br>
         </div>
     </div>

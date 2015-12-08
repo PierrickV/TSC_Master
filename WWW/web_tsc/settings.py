@@ -45,8 +45,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lobby',
-    'post_challenge',
-    'challenges'
+    'challenges',
+    'profil'
 )
 
 MIDDLEWARE_CLASSES = (

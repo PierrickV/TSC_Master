@@ -50,7 +50,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url "lobby.views.home" %}" class="page-scroll">Accueil</a></li>
             <li><a href="{% url "challenges.views.home" %}" class="page-scroll">Challenges</a></li>
-            <li><a href="#tf-profil" class="page-scroll">Profil</a>
+            <li><a href="{% url "profil.views.myprofil" %}" class="page-scroll">Profil</a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -71,51 +71,51 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5">
-                            <img src="{% static 'profil/img/0O.png' %}" class="img-responsive">
+                            <img src="{% static 'profil/img/avatar/0O.png' %}" class="img-responsive">
                         </div>
                         <div class="col-md-7">
                             <div class="about-text">
                                 <div class="section-title">
-                                    <h2>Informations sur <strong>Maxime</strong></h2>
+                                    {% block title_pseudo %}<h2>Informations sur <strong>Maxime</strong></h2>{% endblock %}
                                     <hr>
                                     <div class="clearfix"></div>
                                 </div>
                                 {% block date_registration %}<medium><em>Inscrit le 10/12/2015</em></medium>{% endblock %}
-                                <p class="intro">Responsable communication de tsc, développeur.</p>
+                                {% block description %}<p class="intro">Responsable communication de tsc, développeur.</p>{% endblock %}
                                 <ul class="about-list">
                                     <li align="left">
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Pseudo</strong> - <em>MAx La MenAcE</em>
+                                        <strong>Pseudo</strong> - {% block pseudo %}<em>MAx La MenAcE</em>{% endblock %}
                                     </li>
                                 </ul>
                                 <ul class="about-list">
                                     <li align="left">
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Nom</strong> - <em>Lauret</em>
+                                        <strong>Nom</strong> - {% block nom %}<em>Lauret</em>{% endblock %}
                                     </li>
                                 </ul>
                                 <ul class="about-list">
                                     <li align="left">
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Prénom</strong> - <em>Maxime</em>
+                                        <strong>Prénom</strong> - {% block prenom %}<em>Maxime</em>{% endblock %}
                                     </li>
                                 </ul>
                                 <ul class="about-list">
                                     <li align="left">
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Adresse Email</strong> - <em><i>non affiché</i></em>
+                                        <strong>Adresse Email</strong> - {% block email %}<em><i>non affiché</i></em>{% endblock %}
                                     </li>
                                 </ul>
                                 <ul class="about-list">
                                     <li align="left">
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Nombre d'épreuves validé</strong> - <em>4</em>
+                                        <strong>Nombre d'épreuves validé</strong> - {% block valide_epreuve %}<em>4</em>{% endblock %}
                                     </li>
                                 </ul>
                                 <ul class="about-list">
                                     <li align="left">
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Classement</strong> - <em>8/238</em>
+                                        <strong>Classement</strong> - {% block classement %}<em>8/238</em>{% endblock %}
                                     </li>
                                 </ul>
                             </div>
@@ -141,7 +141,7 @@
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                </ul>
+                </ul>   
             </div>-->
         </div>
     </nav>

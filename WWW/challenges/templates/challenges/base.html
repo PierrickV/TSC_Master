@@ -50,7 +50,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url "lobby.views.home" %}" class="page-scroll">Accueil</a></li>
             <li><a href="{% url "challenges.views.home" %}" class="page-scroll">Challenges</a></li>
-            <li><a href="#tf-profil" class="page-scroll">Profil</a>
+            <li><a href="{% url "profil.views.myprofil" %}" class="page-scroll">Profil</a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -74,11 +74,11 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th>Résultat</th>
-                        <th>Nom de l'épreuve</th>
-                        <th>Nombre de points</th>
-                        <th>Difficulté</th>
-                        <th>Auteur</th>
+                        <td><strong>Résultat</strong></td>
+                        <td><strong>Nom de l'épreuve</strong></td>
+                        <td><strong>Nombre de points</strong></td>
+                        <td><strong>Difficulté</strong></td>
+                        <td><strong>Auteur</strong> </td>
                       </tr>
                     </thead>
                     <tbody>

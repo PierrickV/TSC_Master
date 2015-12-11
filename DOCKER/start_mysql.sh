@@ -2,10 +2,17 @@
 # Pierrick VERAN - Tardigrade Security Challenge - 09/11/2015
 # Launch mysql container link with tsc_database file
 
+docker rm -f tsc_database
+
 docker run \
- --name tsc_database \
- --restart=always \
- -e MYSQL_ROOT_PASSWORD="zIDCUiY55YwBOkQKbML2"  \
- -v //c/wamp/www/Intech/Projets/S5/PI/Web/tardigrade_security_challenge/WWW:/var/lib/mysql \
- -p 127.0.0.1:3306:3306 \
- -d mysql
+--name tsc_database \
+--restart=always \
+-e MYSQL_ROOT_PASSWORD="django" \
+-e MYSQL_ALLOW_EMPTY_PASSWORD="no" \
+-e MYSQL_USER="django"  \
+-e MYSQL_PASSWORD="django"  \
+-e MYSQL_DATABASE="tsc_database"  \
+-v /home/lilyus/Mysql/:/var/lib/mysql/:rw \
+-v /home/lilyus/Git/TSC/DOCKER/TSC_DATABASE/config_files/:/etc/mysql/:rw \
+-p 127.0.0.1:3306:3306 \
+-d mysql

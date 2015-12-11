@@ -9,7 +9,7 @@ MAINTAINER veran@intechinfo.fr
 # Enable production settings by default; for development, this can be set to 
 # `false` in `docker run --env`
 ENV DJANGO_PRODUCTION=true
-ENV DJANGO_SETTINGS_MODULE="settings"
+ENV DJANGO_SETTINGS_MODULE="web_tsc.settings"
 ENV PYTHONPATH="/var/www/"
 
 # Set terminal to be noninteractive
@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
 	python3-pip \
 	python3-tz \
 	python-gevent \
+	python-mysqldb \
 	libffi6 \
 	libssl1.0.0 \
 	libmysqlclient-dev \

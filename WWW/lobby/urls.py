@@ -4,3 +4,8 @@ urlpatterns = patterns('lobby.views',
 	url(r'^', 'home'),
     url(r'^home/$', 'home')
 )
+
+#urlpatterns = [
+#    url(r'^', 'home'),
+#    url(r'^home/', 'home'),
+#]

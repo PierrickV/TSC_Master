@@ -26,16 +26,15 @@ ALLOWED_HOSTS = [
 
 # Database
 DATABASES = {
-    'default': {
-# Pour MySQL
-#        'ENGINE': 'django.db.backends.mysql',
-        'ENGINE' : 'django.db.backends.sqlite3',
-        'NAME': '/home/alababa/git/tardigrade_security_challenge/WWW/db.sqlite3',
-#        'USER': '<DJANGO>',
-#        'PASSWORD': '<zIDCUiY55YwBOkQKbML2>',
-#        'HOST': '127.0.0.1',
-#        'PORT': '3306',
-    }}
+	'default': {
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'tsc_database',  # Nom de la base de données
+		'USER': 'django',            # Utilisateur
+		'PASSWORD': 'django',        # Mot de passe si nécessaire
+		'HOST': 'tsc_database',         # Utile si votre base de données est sur une autre machine
+		'PORT': '3306',                  # ... et si elle utilise un autre port que celui par défaut
+    }
+}
 
 # Application definition
 
@@ -51,7 +50,7 @@ INSTALLED_APPS = (
     'profil'
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWAeRE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

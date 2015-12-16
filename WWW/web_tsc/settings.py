@@ -47,7 +47,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'lobby',
     'challenges',
-    'profil'
+    'profil',
+    'spirit'
 )
 
 MIDDLEWAeRE_CLASSES = (

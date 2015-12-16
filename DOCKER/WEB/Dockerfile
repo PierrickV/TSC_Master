@@ -18,27 +18,28 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update and install packages
 RUN apt-get update && apt-get install -y \
 	supervisor \
-	python3-pip \
-	python3-tz \
+	python-pip \
+	python-tz \
 	python-gevent \
 	python-mysqldb \
 	libffi6 \
 	libssl1.0.0 \
 	libmysqlclient-dev \
+	libjpeg-dev \
 	javascript-common \
 	apt-utils \
 	wget \
 	nginx \
 	git \
+	python-dev \
 && apt-get autoclean
 
 ADD config_files config_files
 WORKDIR /config_files
 
 # Install python requirement,install and patch gevent, install and patch setuptools installation and change python default version
-RUN pip3 install --upgrade -r requirements.txt \
-&& wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python \
-&& ln -sf /usr/bin/python3.4 /usr/local/bin/python
+RUN pip install --upgrade -r requirements.txt \
+&& wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python
 
 # Expose ports
 # 80 = Nginx

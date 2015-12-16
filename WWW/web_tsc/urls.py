@@ -7,5 +7,6 @@ urlpatterns = [
 	 url(r'^$', include('lobby.urls')),
 	 url(r'^home/$', include('lobby.urls')),
 	 url(r'^challenges/', include('challenges.urls')),
-	 url(r'^profil/', include('profil.urls'))
+	 url(r'^profil/', include('profil.urls')),
+	 url(r'^Spirit/spirit/', include('spirit.urls'))
 ]

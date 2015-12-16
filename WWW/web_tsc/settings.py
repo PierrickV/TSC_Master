@@ -3,6 +3,7 @@
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from spirit.settings import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -47,7 +48,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'lobby',
     'challenges',
-    'profil'
+    'profil',
+    'spirit',
+    'djconfig',
+    'haystack'
 )
 
 MIDDLEWAeRE_CLASSES = (

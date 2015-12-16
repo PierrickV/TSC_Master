@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Users(models.Model):
-   #user_id ajouté automatiquement par Django
+   #user_id ajoute automatiquement par Django
    firstname = models.CharField(max_length=40)
    lastname = models.CharField(max_length=40)
    username = models.CharField(max_length=40)
@@ -16,7 +16,7 @@ class Users(models.Model):
    registration_date = models.DateTimeField(auto_now_add=True, auto_now=False)
 
 class Challenges(models.Model):
-   #challenge_id ajouté automatiquement par Django
+   #challenge_id ajoute automatiquement par Django
    name = models.CharField(max_length=40)
    creator = models.CharField(max_length=40)
    description = models.TextField(null=True)
@@ -30,7 +30,7 @@ class Challenges(models.Model):
    points = models.PositiveSmallIntegerField()
 
 class Events(models.Model):
-   #event_id ajouté automatiquement par Django
+   #event_id ajoute automatiquement par Django
    name = models.CharField(max_length=40)
    description = models.TextField(null=True)
    place = models.CharField(max_length=40)
@@ -39,7 +39,7 @@ class Events(models.Model):
    date_end = models.DateField(auto_now_add=False, auto_now=False)
 
 class Event_Challenge(models.Model):
-   #event_challenge_id ajouté automatiquement par Django
+   #event_challenge_id ajoute automatiquement par Django
    challenge_id = models.ForeignKey('Challenges')
    event_id = models.ForeignKey('Events')
 

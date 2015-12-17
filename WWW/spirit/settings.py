@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'djconfig.models.Config',
+
     'spirit.core',
     'spirit.admin',
     'spirit.search',

@@ -16,3 +16,4 @@ docker run \
         -v /home/lilyus/Git/TSC/DOCKER/DATABASE/config_files/:/etc/mysql/:rw \
         -p 127.0.0.1:3306:3306 \
         -d mysql
+

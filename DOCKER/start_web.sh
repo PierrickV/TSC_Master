@@ -3,9 +3,11 @@
 # Launch nginx-django container link with tsc's webfiles
 
 docker rm -f tsc_web
+
 docker run -it \
---name tsc_web \
--v /home/lilyus/Git/TSC/WWW:/var/www:rw \
--p 127.0.0.1:80:80 \
---link tsc_database \
--d tsc/master:Web
+        --name tsc_web \
+        -v /home/lilyus/Git/TSC/WWW:/var/www:rw \
+        -p 127.0.0.1:80:80 \
+        --link tsc_database \
+        -d tsc/master:Web
+

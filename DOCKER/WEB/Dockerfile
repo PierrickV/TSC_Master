@@ -32,6 +32,7 @@ RUN apt-get update && apt-get install -y \
 	nginx \
 	git \
 	python-dev \
+	virtualenv \
 && apt-get autoclean
 
 ADD config_files config_files

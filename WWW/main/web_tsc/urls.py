@@ -1,7 +1,9 @@
 #web_tsc URL Configuration
 
 from django.conf.urls import include, url
-from django.contrib import admin	
+from django.contrib import admin
+from spirit.settings import *
+from spirit.category import *
 
 urlpatterns = [
 	 url(r'^$', include('lobby.urls')),

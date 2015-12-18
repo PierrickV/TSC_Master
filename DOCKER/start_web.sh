@@ -3,6 +3,7 @@
 # Launch nginx-django container link with tsc's webfiles
 
 docker rm -f tsc_web
+
 docker run -it \
 --name tsc_web \
 -v /home/alababa/git/tardigrade_security_challenge/WWW:/var/www:rw \

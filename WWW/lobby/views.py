@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from forms import ConnectForm
 
 def home(request):
-    return render(request, 'lobby/base.html', locals())
+	form = ConnectForm()
+	return render(request, 'lobby/base.html', locals())
 
 
 def form(request):
@@ -13,7 +15,7 @@ def form(request):
 		form = ConnectForm(request.POST) # Bind data from request.POST into a PostForm
  
         # If data is valid, proceeds to create a new post and redirect the user
-		if form.is_valid():
+		#if form.is_valid():
  
 	return render(request, 'lobby/base.html', {
 		'form': form,

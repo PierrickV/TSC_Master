@@ -1,15 +1,11 @@
 #!/bin/bash
 # Pierrick VERAN - Tardigrade Security Challenge - 09/11/2015
 # Create nginx-gunicorn-django container link with tsc's webfiles
-# Container should be launch with start_web.sh script
-# Use "docker build --tag=tsc/master:Web . " to build nginx image
 FROM debian:jessie
 MAINTAINER veran@intechinfo.fr
 
-# Enable production settings by default; for development, this can be set to 
-# `false` in `docker run --env`
-ENV DJANGO_PRODUCTION=true
-ENV DJANGO_SETTINGS_MODULE="web_tsc.settings"
+
+# Set PYTHONPATH to django modules
 ENV PYTHONPATH="/var/www/"
 
 # Set terminal to be noninteractive
@@ -22,6 +18,8 @@ RUN apt-get update && apt-get install -y \
 	python-tz \
 	python-gevent \
 	python-mysqldb \
+	python-dev \
+	python-virtualenv \
 	libffi6 \
 	libssl1.0.0 \
 	libmysqlclient-dev \
@@ -31,8 +29,6 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	nginx \
 	git \
-	python-dev \
-	virtualenv \
 && apt-get autoclean
 
 ADD config_files config_files
@@ -50,7 +46,16 @@ EXPOSE 80
 RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
 && ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf \
 && rm /etc/nginx/sites-enabled/default \
-&& mkdir /var/log/gunicorn
+&& mkdir /var/log/gunicorn \
+&& mkdir -p /var/www/main \
+&& mkdir -p /var/www/forum
+
+#Configure django
+RUN groupadd --system webapps \
+&& useradd --system --gid webapps --home /var/www/main/ django_main \
+&& useradd --system --gid webapps --home /var/www/forum/ django_forum \
+&& chown -R django_main:users /var/www/main/ \
+&& chown -R django_forum:users /var/www/forum/
 
 # Run Supervisor (i.e., start Nginx, and Gunicorn)
 COPY /config_files/supervisord.conf /etc/supervisor/supervisord.conf

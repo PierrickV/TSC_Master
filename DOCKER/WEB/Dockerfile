@@ -52,14 +52,12 @@ RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
 
 #Configure django
 RUN groupadd --system webapps \
-&& useradd --system --gid webapps --home /var/www/main/ django_main \
-&& useradd --system --gid webapps --home /var/www/forum/ django_forum \
-&& chown -R django_main:users /var/www/main/ \
-&& chown -R django_forum:users /var/www/forum/
+&& useradd --system --gid webapps --home /var/www/main/ gunicorn_main \
+&& useradd --system --gid webapps --home /var/www/forum/ gunicorn_forum
 
 # Run Supervisor (i.e., start Nginx, and Gunicorn)
-COPY /config_files/supervisord.conf /etc/supervisor/supervisord.conf
-COPY /config_files/supervisord_nginx_gunicorn.conf /etc/supervisor/conf.d/supervisord_nginx_gunicorn.conf
+RUN cp /config_files/supervisord.conf /etc/supervisor/supervisord.conf \
+&& cp /config_files/supervisord_nginx_gunicorn.conf /etc/supervisor/conf.d/supervisord_nginx_gunicorn.conf
 
 #CMD /bin/bash
 CMD ["/usr/bin/supervisord"]

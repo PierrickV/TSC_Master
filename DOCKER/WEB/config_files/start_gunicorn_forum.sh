@@ -30,4 +30,4 @@ exec ../bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --user=$USER --group=$GROUP \
   --bind=unix:$SOCKFILE \
   --log-level=debug \
-  --log-file=-
+  --log-file=/var/log/gunicorn/forum.log

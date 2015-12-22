@@ -1,0 +1,5 @@
+setuptools
+Django==1.8.6
+gunicorn
+pymysql
+django-spirit

@@ -68,6 +68,7 @@
                                 <div class="modal-body">
                                 <p></p>
                                 <form class="form-horizontal" method="POST" name="connect" action="{% url "lobby.views.validfc" %}">
+                                {% csrf_token %}
                                 <fieldset>
                                 <!-- Text input-->
                                 <div class="form-group">
@@ -110,6 +111,7 @@
                                 <div class="modal-body">
                                 <p></p>
                                 <form class="form-horizontal" method="POST" name="subscribe" action="{% url "lobby.views.validfs" %}">
+                                    {% csrf_token %}
                                     <div class="row">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-5">

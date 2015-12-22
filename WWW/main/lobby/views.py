@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.core.context_processors import csrf
 
 def home(request):
 	return render(request, 'lobby/base.html', locals())
@@ -20,7 +21,8 @@ def form(request):
     })
 
 def validfc(request):
-	form = connect(request.POST) # Bind data from request.POST into a PostForm
+	username = request.POST['username']
+	password = request.POST['password']
  	return render(request, 'lobby/base.html', locals())
 
 def validfs(request):

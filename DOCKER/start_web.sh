@@ -9,4 +9,10 @@ docker run -it \
 --restart=always \
 -v /home/docker/Git/TSC/WWW:/var/www:ro \
 -p 80:80 \
+--link tsc_database \
 -d tsc/master:Web
+
+
+
+
+

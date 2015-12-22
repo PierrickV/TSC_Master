@@ -6,8 +6,15 @@ docker rm -f tsc_web
 
 docker run -it \
         --name tsc_web \
-        -v /home/lilyus/Git/TSC/WWW:/var/www:rw \
-        -p 127.0.0.1:80:80 \
+        --restart=always \
+        -v /home/docker/Git/TSC/WWW:/var/www:rw \
+        -v /home/docker/nv_challenges:/nv_challenges:rw \
+        --privileged --cap-add=MKNOD --cap-add=SYS_ADMIN --device=/dev/fuse \
+        -p 80:80 \
         --link tsc_database \
         -d tsc/master:Web
+
+
+
+
 

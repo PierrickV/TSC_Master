@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	nginx \
 	git \
+	sshfs \
 && apt-get autoclean
 
 ADD config_files config_files

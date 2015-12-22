@@ -67,24 +67,57 @@
                             <div class="form_co">
                                 <div class="modal-body">
                                 <p></p>
-                                <form action="{% url "lobby.views.form" %}" method="post">
-                                    {% csrf_token %}
-                                    {{ ConnectForm.as_p }}
-                                    <input type="submit" value="Submit" />
-                                </form>
+                                <form class="form-horizontal" method="POST" name="connect" action="{% url "lobby.views.validfc" %}">
+                                {% csrf_token %}
+                                <fieldset>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                  <label class="col-md-3 control-label" for="name"></label>  
+                                  <div class="col-md-6">
+                                  <input id="name" name="username" type="text" placeholder="Identité" class="form-control input-md" required="">
+                                    
+                                  </div>
+                                </div>
+
+                                <!-- Password input-->
+                                <div class="form-group">
+                                  <label class="col-md-3 control-label" for="password"></label>
+                                  <div class="col-md-6">
+                                    <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md" required="">
+                                    
+                                  </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="row">
+                                        <br>
+                                        <div class="col-lg-4"></div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-success btn-lg">Se connecter </button>
+                                        </div>
+                                        <div class="col-md-1">
+                                        <div class="col-md-5"></div>
+                                        <div class="col-md-3">
+                                                <input type="button" id="subscribe" name="subscribe" value="S'inscrire" class="btn btn-default btn-lg">
+                                        </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                </form>               
                                 </div>
                             </div>
 
                             <div class="form_sub">
                                 <div class="modal-body">
                                 <p></p>
-                                <form>
+                                <form class="form-horizontal" method="POST" name="subscribe" action="{% url "lobby.views.validfs" %}">
+                                    {% csrf_token %}
                                     <div class="row">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-5">
                                                 <div class="form-group">
                                                 <label for="exampleInputEmail1">Adresse Mail</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" name="{{ email }}"placeholder="client@webmail.fr">
+                                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="client@webmail.fr">
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +126,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="exampleInputFirstname">Prénom</label>
-                                                <input type="password" class="form-control" id="exampleInputFirstname" name="{{ firstname }}" placeholder="Prénom">
+                                                <input type="text" class="form-control" id="exampleInputFirstname" name="firstname" placeholder="Prénom">
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +135,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="exampleInputLastname">Nom</label>
-                                                <input type="password" class="form-control" id="exampleInputLasname" name="{{ lastname }}" placeholder="Nom">
+                                                <input type="text" class="form-control" id="exampleInputLasname" name="lastname" placeholder="Nom">
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +145,7 @@
                                             <!-- Text input-->
                                             <div class="form-group">
                                               <label for="loginName">Username</label>  
-                                              <input id="loginName" type="text" placeholder="Identité" name="{{ username }}" class="form-control">
+                                              <input id="loginName" type="text" placeholder="Identité" name="username" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -121,7 +154,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="exampleInputPassword">Mot de passe</label>
-                                                <input type="password" class="form-control" name="{{ password }}" id="exampleInputPassword">
+                                                <input type="password" class="form-control" name="password" id="exampleInputPassword">
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +163,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2">Confirmation du mot de passe</label>
-                                                <input type="password" class="form-control" name="{{ password2 }}" id="exampleInputPassword2">
+                                                <input type="password" class="form-control" name="password2" id="exampleInputPassword2">
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +172,7 @@
                                         <div class="col-md-5">
                                            <div class="form-group">
                                             <label for="exampleInputDescription">Description (Optionnel)</label>
-                                            <textarea class="form-control" rows="3" name="{{ description }}"placeholder="Organisation, Job, Passion..."></textarea>
+                                            <textarea class="form-control" rows="3" name="description" placeholder="Organisation, Job, Passion..."></textarea>
                                             </div>
                                         </div>
                                     </div>

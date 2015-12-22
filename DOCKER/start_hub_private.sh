@@ -8,7 +8,7 @@ docker rm -f tsc_hub_private
 docker run \
         --name tsc_hub_private \
         --restart=always \
-        -p 127.0.0.1:5000:5000 \
+        -p 5000:5000 \
         -v $(pwd)/HUB/auth:/auth \
         -e REGISTRY_AUTH="htpasswd" \
         -e REGISTRY_AUTH_HTPASSWD_REALM="Registry Realm" \

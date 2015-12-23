@@ -1,8 +1,9 @@
 from django.db import models
 
 # Create your models here.
-class Users(models.Model):
+class User(models.Model):
    #user_id ajoute automatiquement par Django
+   id = models.AutoField(primary_key=True)
    firstname = models.CharField(max_length=40)
    lastname = models.CharField(max_length=40)
    username = models.CharField(max_length=40)
@@ -11,12 +12,13 @@ class Users(models.Model):
    status = models.BooleanField()
    role = models.CharField(max_length=40)
    score = models.PositiveSmallIntegerField()
-   avatar = models.CharField(max_length=100)
+   avatar = models.CharField(max_length=100, null=True)
    description = models.TextField(null=True)
    registration_date = models.DateTimeField(auto_now_add=True, auto_now=False)
 
 class Challenges(models.Model):
    #challenge_id ajoute automatiquement par Django
+   id = models.AutoField(primary_key=True)
    name = models.CharField(max_length=40)
    creator = models.CharField(max_length=40)
    description = models.TextField(null=True)
@@ -31,6 +33,7 @@ class Challenges(models.Model):
 
 class Events(models.Model):
    #event_id ajoute automatiquement par Django
+   id = models.AutoField(primary_key=True)
    name = models.CharField(max_length=40)
    description = models.TextField(null=True)
    place = models.CharField(max_length=40)
@@ -40,11 +43,13 @@ class Events(models.Model):
 
 class Event_Challenge(models.Model):
    #event_challenge_id ajoute automatiquement par Django
+   id = models.AutoField(primary_key=True)
    challenge_id = models.ForeignKey('Challenges')
    event_id = models.ForeignKey('Events')
 
 class UEC(models.Model):
-   user_id = models.ForeignKey('Users')
+   id = models.AutoField(primary_key=True)
+   user_id = models.ForeignKey('User')
    event_challenge_id = models.ForeignKey('Event_Challenge')
    status_challenge = models.BooleanField()
    score_event = models.PositiveSmallIntegerField()

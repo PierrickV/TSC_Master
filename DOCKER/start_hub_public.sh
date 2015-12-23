@@ -1,14 +1,14 @@
 #!/bin/bash
 # Pierrick VERAN - Tardigrade Security Challenge - 22/12/2015
-# Launch hub container for private docker images storage
+# Launch hub container for public docker images storage
 # docker pull distribution/registry:master
 
-docker rm -f tsc_hub_private
+docker rm -f tsc_hub_public
 
 docker run \
-        --name tsc_hub_private \
+        --name tsc_hub_public \
         --restart=always \
-        -p 50:5000 \
+        -p 5000:5000 \
         -v $(pwd)/HUB/auth_public:/auth \
         -e REGISTRY_AUTH="htpasswd" \
         -e REGISTRY_AUTH_HTPASSWD_REALM="Registry Realm" \

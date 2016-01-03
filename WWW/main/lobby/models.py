@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import UserManager
+
 
 # Create your models here.
 class User(models.Model):
@@ -8,13 +10,18 @@ class User(models.Model):
    lastname = models.CharField(max_length=40)
    username = models.CharField(max_length=40)
    password = models.CharField(max_length=100)
-   mail = models.CharField(max_length=100)
-   status = models.BooleanField()
+   email = models.CharField(max_length=100)
+   status = models.PositiveSmallIntegerField()
    role = models.CharField(max_length=40)
    score = models.PositiveSmallIntegerField()
    avatar = models.CharField(max_length=100, null=True)
    description = models.TextField(null=True)
    registration_date = models.DateTimeField(auto_now_add=True, auto_now=False)
+   is_active = models.BooleanField(default=True)
+   is_admin = models.BooleanField(default=False)
+   is_staff = models.BooleanField(default=False)
+   is_superuser = models.BooleanField(default=False)
+   objects = UserManager()
 
 class Challenges(models.Model):
    #challenge_id ajoute automatiquement par Django

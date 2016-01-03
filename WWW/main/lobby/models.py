@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import UserManager
+from django.utils import timezone
+import datetime
 
 
 # Create your models here.
@@ -16,7 +18,7 @@ class User(models.Model):
    score = models.PositiveSmallIntegerField()
    avatar = models.CharField(max_length=100, null=True)
    description = models.TextField(null=True)
-   registration_date = models.DateTimeField(auto_now_add=True, auto_now=False)
+   date_joined = models.DateTimeField(('date joined'), default=timezone.now)
    is_active = models.BooleanField(default=True)
    is_admin = models.BooleanField(default=False)
    is_staff = models.BooleanField(default=False)

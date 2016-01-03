@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from lobby.models import User
 
 
+
 def home(request):
 	if request.user.is_authenticated():
 		return render(request, 'lobby/home.html', locals())
@@ -43,7 +44,7 @@ def subscribe(request):
 	password2 = request.POST.get('password2')
 	description = request.POST.get('description')
 	
-	new_guy = User.objects.create_user(username='newusername', email='email', password='password')
+	new_guy = User.objects.create_user(username=newusername, email=email, password=password)
 	new_guy.firstname = 'firstname'
 	new_guy.lastname = 'lastname'
 	new_guy.status = '1'
@@ -51,6 +52,7 @@ def subscribe(request):
 	new_guy.score = '0'
 	new_guy.avatar = ''
 	new_guy.description = 'description'
+	user.set_password(password)
 	#registration date
 
 	new_guy.save()

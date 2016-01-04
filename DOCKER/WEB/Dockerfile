@@ -40,11 +40,12 @@ RUN pip install --upgrade -r requirements.txt \
 && wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python
 
 # Expose ports
-# 80 = Nginx
-EXPOSE 80
+EXPOSE 443
 
 # Configure Nginx
 RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
+&& cp /config_files/tsc.itinet.fr.crt /etc/nginx/tsc.itinet.fr.crt \
+&& cp /config_files/tsc.itinet.fr.key /etc/nginx/tsc.itinet.fr.key \
 && ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf \
 && rm /etc/nginx/sites-enabled/default \
 && mkdir /var/log/gunicorn \

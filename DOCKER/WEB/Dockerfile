@@ -48,8 +48,8 @@ EXPOSE 443
 
 # Configure Nginx
 RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
-&& cp /config_files/tsc.itinet.fr.crt /etc/nginx/tsc.itinet.fr.crt \
-&& cp /config_files/tsc.itinet.fr.key /etc/nginx/tsc.itinet.fr.key \
+&& cp /config_files/certs/tsc.itinet.fr.cert.pem /etc/nginx/tsc.itinet.fr.cert.pem \
+&& cp /config_files/certs/tsc.itinet.fr.privkey.pem /etc/nginx/tsc.itinet.fr.privkey.pem \
 && ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf \
 && rm /etc/nginx/sites-enabled/default \
 && mkdir /var/log/gunicorn \

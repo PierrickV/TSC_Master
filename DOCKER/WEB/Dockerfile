@@ -21,7 +21,11 @@ RUN apt-get update && apt-get install -y \
 	python-dev \
 	python-virtualenv \
 	libffi6 \
-	libssl1.0.0 \
+	augeas-lenses \
+	dialog \
+	libaugeas0 \
+	libffi-dev \
+	libssl-dev \
 	libmysqlclient-dev \
 	libjpeg-dev \
 	javascript-common \

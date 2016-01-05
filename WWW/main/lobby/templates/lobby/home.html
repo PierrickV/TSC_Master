@@ -3,3 +3,7 @@
 {% block nav-right %}
 <a href="{% url "profil.views.myprofil" %}" class="page-scroll">Profil</a>
 {% endblock %}
+
+{% block nav-plus %}
+<li><a href="{% url "lobby.views.disconnect" %}" class="page-scroll">Deconnexion</a></li>
+{% endblock %}

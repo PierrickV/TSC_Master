@@ -203,6 +203,7 @@
                         </div>
                       </div>
             </li>
+            {% block nav-plus %}{% endblock %}
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -464,7 +465,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 branding">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.realist" %}">
                                 <div class="hover-text">
                                     <h4>Réaliste</h4>
                                     <!--<small>Branding</small>-->
@@ -480,7 +481,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 photography">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.web" %}">
                                 <div class="hover-text">
                                     <h4>Web</h4>
                                     <div class="clearfix"></div>
@@ -495,7 +496,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.reverse" %}">
                                 <div class="hover-text">
                                     <h4>Reverse</h4>
                                     <div class="clearfix"></div>
@@ -510,7 +511,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 photography">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.application" %}">
                                 <div class="hover-text">
                                     <h4>Application</h4>
                                     <div class="clearfix"></div>
@@ -525,7 +526,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.network" %}">
                                 <div class="hover-text">
                                     <h4>Réseau</h4>
                                     <div class="clearfix"></div>
@@ -540,7 +541,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.programming" %}">
                                 <div class="hover-text">
                                     <h4>Programming</h4>
                                     <div class="clearfix"></div>
@@ -555,7 +556,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 photography web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.forensic" %}">
                                 <div class="hover-text">
                                     <h4>Forensic</h4>
                                     <div class="clearfix"></div>
@@ -570,7 +571,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.steganography" %}">
                                 <div class="hover-text">
                                     <h4>Steganography</h4>
                                     <div class="clearfix"></div>

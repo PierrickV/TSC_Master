@@ -3,6 +3,7 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('challenges.views',
 	url(r'^$', 'home'),
     url(r'post/$', 'post'),
+    url(r'add/$', 'add'),
     url(r'web/$', 'web'),
     url(r'web/([0-9]{3})/$', 'web_ep'),
     url(r'realist/$', 'realist'),

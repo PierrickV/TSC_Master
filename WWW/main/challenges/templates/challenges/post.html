@@ -73,7 +73,8 @@
                         <div class="clearfix"></div>
                         <medium><em>L'équipe Tardigrade Security Challenge validera votre challenge dans les 48h.</em></medium>            
                     </div>
-                    <form>
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" name="post" action="{% url "challenges.views.add" %}">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
@@ -95,7 +96,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputName">Nom du challenge</label>
-                                    <input type="text" class="form-control" id="exampleInputName" placeholder="SQL injection">
+                                    <input type="text" class="form-control" name = "name" id="exampleInputName" placeholder="SQL injection">
                                 </div>
                             </div>
                         </div>
@@ -104,7 +105,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputLevel">Difficulté du challenge (/5)</label>
-                                    <select name="category" class="form-control" id="exampleInputLevel">
+                                    <select name="difficulty" class="form-control" id="exampleInputLevel">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -119,11 +120,9 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputType">Type de challenge</label>
-                                    <select name="category" class="form-control" id="exampleInputType" >
+                                    <select name="typeadd" class="form-control" id="exampleInputType" >
                                         <option value="url">URL</option>
-                                        <option value="text">Texte</option>
                                         <option value="zip">Fichier Zip</option>
-                                        <option value="tar">Fichier Tar.gz</option>
                                     </select>
                                 </div>
                             </div>
@@ -135,7 +134,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputLink">Votre challenge</label>
                                     <div id = "default">
-                                        <input type='text' class='form-control'>
+                                        <input type='text' name="challenge" class='form-control'>
                                     </div>
                                     <div id = "link">
                                     </div>
@@ -148,7 +147,7 @@
                             <div class="col-md-12">
                                <div class="form-group">
                                 <label for="exampleInputDescription">Description de l'épreuve</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" name="description" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +155,7 @@
                             <div class="col-md-12">
                                <div class="form-group">
                                 <label for="exampleInputIndice">Indice (Optionnel)</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" name="indice" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +163,7 @@
                             <div class="col-md-12">
                                <div class="form-group">
                                 <label for="exampleInputAnswer">Solution du challenge</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" name="solution" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +185,6 @@
         </div>
     </div>
 </div>
-
     <!-- Portfolio Section
     ==========================================-->
     <div id="tf-works">
@@ -221,14 +219,14 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 branding">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.realist" %}">
                                 <div class="hover-text">
-                                    <h4>Système</h4>
+                                    <h4>Réaliste</h4>
                                     <!--<small>Branding</small>-->
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'challenges/img/portfolio/01.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/realist.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -237,13 +235,13 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 photography">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.web" %}">
                                 <div class="hover-text">
-                                    <h4>Script</h4>
+                                    <h4>Web</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'challenges/img/portfolio/02.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/web.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -252,58 +250,58 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
-                                <div class="hover-text">
-                                    <h4>Cracking</h4>
-                                    <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
-                                </div>
-                                <img src="{% static 'challenges/img/portfolio/03.jpg' %}" class="img-responsive" alt="...">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-3 photography">
-                    <div class="portfolio-item">
-                        <div class="hover-bg">
-                            <a href="#">
-                                <div class="hover-text">
-                                    <h4>Programmation</h4>
-                                    <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
-                                </div>
-                                <img src="{% static 'challenges/img/portfolio/04.jpg' %}" class="img-responsive" alt="...">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-3 web">
-                    <div class="portfolio-item">
-                        <div class="hover-bg">
-                            <a href="#">
-                                <div class="hover-text">
-                                    <h4>Réseau</h4>
-                                    <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
-                                </div>
-                                <img src="{% static 'challenges/img/portfolio/05.jpg' %}" class="img-responsive" alt="...">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-3 web">
-                    <div class="portfolio-item">
-                        <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.reverse" %}">
                                 <div class="hover-text">
                                     <h4>Reverse</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'challenges/img/portfolio/06.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/reverse.png' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 photography">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="{% url "challenges.views.application" %}">
+                                <div class="hover-text">
+                                    <h4>Application</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/categories/application.png' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="{% url "challenges.views.network" %}">
+                                <div class="hover-text">
+                                    <h4>Réseau</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/categories/network.png' %}" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="{% url "challenges.views.programming" %}">
+                                <div class="hover-text">
+                                    <h4>Programming</h4>
+                                    <div class="clearfix"></div>
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <img src="{% static 'lobby/img/categories/programming.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -312,13 +310,13 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 photography web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.forensic" %}">
                                 <div class="hover-text">
-                                    <h4>Hacking</h4>
+                                    <h4>Forensic</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'challenges/img/portfolio/07.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/forensic.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -327,13 +325,13 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 web">
                     <div class="portfolio-item">
                         <div class="hover-bg">
-                            <a href="#">
+                            <a href="{% url "challenges.views.steganography" %}">
                                 <div class="hover-text">
-                                    <h4>Javascript</h4>
+                                    <h4>Steganography</h4>
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'challenges/img/portfolio/08.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/stegano.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -342,7 +340,6 @@
             </div>
         </div>
     </div>
-    
 
     <nav id="footer">
         <div class="container">
@@ -380,19 +377,11 @@
           switch(input){
             case "url":
                 $("#default").hide();
-                $("#link").html("<input type='text' class='form-control' name='url'>");
-            break;
-            case "text":
-                $("#default").hide();
-                $("#link").html("<textarea class='form-control' rows='3' name='inputext'></textarea>");
+                $("#link").html("<input type='text' class='form-control' name='challenge'>");
             break;
             case "zip":
                 $("#default").hide();
-                $("#link").html("<input type='file' name='zip'>");
-            break;
-            case "tar":
-                $("#default").hide();
-                $("#link").html("<input type='file' name='tar'>");
+                $("#link").html("<input type='file' name='challenge'>");
             break;
           } 
         });

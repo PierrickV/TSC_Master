@@ -21,7 +21,11 @@ RUN apt-get update && apt-get install -y \
 	python-dev \
 	python-virtualenv \
 	libffi6 \
-	libssl1.0.0 \
+	augeas-lenses \
+	dialog \
+	libaugeas0 \
+	libffi-dev \
+	libssl-dev \
 	libmysqlclient-dev \
 	libjpeg-dev \
 	javascript-common \
@@ -40,11 +44,12 @@ RUN pip install --upgrade -r requirements.txt \
 && wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python
 
 # Expose ports
-# 80 = Nginx
-EXPOSE 80
+EXPOSE 443
 
 # Configure Nginx
 RUN cp /config_files/nginx.conf /etc/nginx/sites-available/django_docker.conf \
+&& cp /config_files/certs/tsc.itinet.fr.cert.pem /etc/nginx/tsc.itinet.fr.cert.pem \
+&& cp /config_files/certs/tsc.itinet.fr.privkey.pem /etc/nginx/tsc.itinet.fr.privkey.pem \
 && ln -s /etc/nginx/sites-available/django_docker.conf /etc/nginx/sites-enabled/django_docker.conf \
 && rm /etc/nginx/sites-enabled/default \
 && mkdir /var/log/gunicorn \

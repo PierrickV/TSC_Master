@@ -67,7 +67,7 @@
                             <div class="form_co">
                                 <div class="modal-body">
                                 <p></p>
-                                <form class="form-horizontal" method="POST" name="connect" action="{% url "lobby.views.validfc" %}">
+                                <form class="form-horizontal" method="POST" name="connect" action="{% url "lobby.views.connect" %}">
                                 {% csrf_token %}
                                 <fieldset>
                                 <!-- Text input-->
@@ -110,7 +110,7 @@
                             <div class="form_sub">
                                 <div class="modal-body">
                                 <p></p>
-                                <form class="form-horizontal" method="POST" name="subscribe" action="{% url "lobby.views.validfs" %}">
+                                <form class="form-horizontal" method="POST" name="subscribe" action="{% url "lobby.views.subscribe" %}">
                                     {% csrf_token %}
                                     <div class="row">
                                         <div class="col-md-3"></div>
@@ -145,7 +145,7 @@
                                             <!-- Text input-->
                                             <div class="form-group">
                                               <label for="loginName">Username</label>  
-                                              <input id="loginName" type="text" placeholder="Identité" name="username" class="form-control">
+                                              <input id="loginName" type="text" placeholder="Identité" name="newusername" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -471,7 +471,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/01.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/realist.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -486,7 +486,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/02.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/web.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -501,7 +501,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/03.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/reverse.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -516,7 +516,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/04.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/application.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -531,7 +531,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/05.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/network.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -546,7 +546,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/06.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/programming.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -561,7 +561,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/07.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/forensic.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>
@@ -576,7 +576,7 @@
                                     <div class="clearfix"></div>
                                     <i class="fa fa-plus"></i>
                                 </div>
-                                <img src="{% static 'lobby/img/portfolio/08.jpg' %}" class="img-responsive" alt="...">
+                                <img src="{% static 'lobby/img/categories/stegano.png' %}" class="img-responsive" alt="...">
                             </a>
                         </div>
                     </div>

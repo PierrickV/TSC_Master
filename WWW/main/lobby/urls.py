@@ -2,9 +2,9 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('lobby.views',
 	url(r'^$', 'home'),
-    url(r'^form/$', 'form'),
-    url(r'^validfc/$', 'validfc'),
-    url(r'^validfs/$', 'validfs')
+    url(r'connect/$', 'connect'),
+    url(r'subscribe/$', 'subscribe'),
+    #url(r'disconnect/$', 'disconnect')
 )
 
 #urlpatterns = [

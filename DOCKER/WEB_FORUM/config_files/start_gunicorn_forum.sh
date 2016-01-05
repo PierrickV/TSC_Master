@@ -24,6 +24,6 @@ export SECRET_KEY
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
-  --bind=unix:$BIND \
+  --bind=$BIND \
   --log-level=debug \
   --log-file=/var/log/gunicorn/forum.log

@@ -28,9 +28,11 @@ def connect(request):
 def disconnect(request):
 	if request.user.is_authenticated():
 		logout(request)
-		return render(request, 'lobby/base.html', locals())
+		response = logout(request, next_page=reverse('app.home.views.home'))
+		response.delete_cookie('sessionid')
+		return response
 	else:
-		return redirect('lobby/home.html', locals())
+		return render(request, 'lobby/home.html', locals())
 
 
 def subscribe(request):

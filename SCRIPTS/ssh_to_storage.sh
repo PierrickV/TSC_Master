@@ -12,5 +12,5 @@ sudo adduser docker fuse
 -o IdentityFile=/home/docker/Git/TSC/DOCKER/WEB/config_files/id_rsa \
 tsc_web@10.8.99.111:/home/tsc_web/nv_challenges/ /home/docker/nv_challenges
 
-fusermount -u nv_challenges/
+sudo fusermount -u nv_challenges/
 

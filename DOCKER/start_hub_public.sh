@@ -20,3 +20,5 @@ docker run \
         -e REGISTRY_HTTP_SECRET="2J9r9mtbm4BdRmcV4ExgVzEbKzkW4W7V8EUYm9cMQ8UGu" \
         -d registry:2
 
+
+

@@ -10,7 +10,7 @@ docker run -it \
     -v /home/docker/Git/TSC/WWW:/var/www:rw \
     -v /home/docker/nv_challenges:/nv_challenges:rw \
     --privileged --cap-add=MKNOD --cap-add=SYS_ADMIN --device=/dev/fuse \
-    -p 127.0.0.1:443:443 \
-    -p 127.0.0.1:80:80 \
+    -p 443:443 \
+    -p 80:80 \
     --link tsc_database \
     -d tsc/master:Web

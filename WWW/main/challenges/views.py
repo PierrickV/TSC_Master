@@ -1,12 +1,47 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from lobby.models import *
+import shutil
 
 def home(request):
     return render(request, 'challenges/home.html', locals())
 
 def post(request):
-    return render(request, 'challenges/post.html', locals())
+	if request.user.is_authenticated():
+		return render(request, 'challenges/post.html', locals())
+	else:
+		return render(request, 'lobby/base.html', locals())
+
+def add(request):
+	if request.user.is_authenticated():
+		username = request.user.username
+		category = request.POST.get('category')
+		name = request.POST.get('name')
+		difficulty = request.POST.get('difficulty')
+		typeadd = request.POST.get('typeadd')
+		description = request.POST.get('description') 
+		indice = request.POST.get('indice')
+		solution = request.POST.get('solution')
+
+		if typeadd == 'url':
+			typeadd = '1'
+			challenge = request.POST.get('challenge')
+			new_challenge = Challenges(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = challenge, points = '10')
+			new_challenge.save()
+		elif typeadd == 'zip':
+			typeadd = '2'
+			fichier = request.FILES['challenge']
+			#shutil.move(fichier, '/nv_challenge')
+			new_challenge = Challenges(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = 'aucun', points = '10')
+			new_challenge.save()
+		else:
+			typeadd = '3'
+
+
+		return render(request, 'challenges/home.html', locals())
+	else:
+		return render(request, 'lobby/base.html', locals())
+
 
 def web(request):
 	return render(request, 'challenges/web.html', locals())

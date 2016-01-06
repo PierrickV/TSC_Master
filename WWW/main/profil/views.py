@@ -1,12 +1,24 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from lobby.models import *
 
 def profil(request):
-    return render(request, 'profil/base.html', locals())
+	username = user_active.username
+	user_active = Profil.objects.get(username = username)
+
+	
+	return render(request, 'profil/base.html', locals())
 
 def myprofil(request):
-	#Si il est pas connect
-    #return render(request, 'lobby/home.html', locals())
+	if request.user.is_authenticated():
+		username = request.user.username
+		user_active = Profil.objects.get(username = username)
+		date = request.user.date_joined
+		description = user_active.description
+		firstname = user_active.firstname
+		lastname = user_active.lastname
+		email = request.user.email
 
-    #Sinon...
-	return render(request, 'profil/myprofil.html', locals())
+		return render(request, 'profil/myprofil.html', {'username': username, 'date': date, 'description': description, 'firstname': firstname, 'lastname': lastname, 'email': email})
+	else:
+		return render(request, 'lobby/base.html', locals())

@@ -23,7 +23,7 @@ def add(request):
 		indice = request.POST.get('indice')
 		solution = request.POST.get('solution')
 
-		if typeadd == 'URL':
+		if typeadd == 'url':
 			typeadd = '1'
 			challenge = request.POST.get('challenge')
 			new_challenge = Challenges(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = challenge, points = '10')
@@ -32,8 +32,10 @@ def add(request):
 			typeadd = '2'
 			fichier = request.FILES['challenge']
 			#shutil.move(fichier, '/nv_challenge')
+			new_challenge = Challenges(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = 'aucun', points = '10')
+			new_challenge.save()
 		else:
-			typeadd = '4'
+			typeadd = '3'
 
 
 		return render(request, 'challenges/home.html', locals())

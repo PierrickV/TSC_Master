@@ -56,6 +56,8 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+
      <!-- Portfolio Section
     ==========================================-->
     <div id="tf-works">
@@ -69,21 +71,11 @@
                 <medium><em>Tardigrade Security Challenge propose des catégories de challenges</em></medium>
             </div>
             <div class="space"></div>
-
-            <div class="categories">
-                
-                <ul class="cat">
-                    <li class="pull-left"><h4>Filtré par Type:</h4></li>
-                    <li class="pull-right">
-                        <ol class="type">
-                            <li><a href="#" data-filter="*" class="active">All</a></li>
-                            <li><a href="#" data-filter=".photography">Alphabétique</a></li>
-                            <li><a href="#" data-filter=".web">Popularité</a></li>
-                        </ol>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
+            {% if request.user.is_authenticated %}
+            <div class="col-lg-5 col-md-5 col-xs-5"></div>
+                <a href="{% url "challenges.views.post" %}" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-pencil"></span> Publier une épreuve</a>
+            <br><br><br><br><br><br>
+            {% endif %}
 
             <div id="lightbox" class="row">
 
@@ -95,7 +87,6 @@
                                     <h4>Réaliste</h4>
                                     <!--<small>Branding</small>-->
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/realist.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -110,7 +101,6 @@
                                 <div class="hover-text">
                                     <h4>Web</h4>
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/web.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -125,7 +115,6 @@
                                 <div class="hover-text">
                                     <h4>Reverse</h4>
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/reverse.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -140,7 +129,6 @@
                                 <div class="hover-text">
                                     <h4>Application</h4>
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/application.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -155,7 +143,6 @@
                                 <div class="hover-text">
                                     <h4>Réseau</h4>
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/network.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -170,7 +157,6 @@
                                 <div class="hover-text">
                                     <h4>Programming</h4>
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/programming.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -185,7 +171,6 @@
                                 <div class="hover-text">
                                     <h4>Forensic</h4>
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/forensic.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -200,7 +185,6 @@
                                 <div class="hover-text">
                                     <h4>Steganography</h4>
                                     <div class="clearfix"></div>
-                                    <i class="fa fa-plus"></i>
                                 </div>
                                 <img src="{% static 'lobby/img/categories/stegano.png' %}" class="img-responsive" alt="...">
                             </a>
@@ -212,40 +196,7 @@
         </div>
     </div>
 <br><br><br><br><br>
-    <!-- Testimonials Section
-    ==========================================-->
-    <div id="tf-testimonials" class="text-center">
-        <div class="overlay">
-            <div class="container">
-                <div class="section-title center">
-                    <h2><strong>Le livre d'or </strong>de nos clients</h2>
-                    <div class="line">
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div id="testimonial" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <h5>Ce site est très bien fait avec des challenges très divers et fun.</h5>
-                                <p><strong>Julien Cartier</strong>, Etudiant</p>
-                            </div>
-
-                            <div class="item">
-                                <h5>Challenges très intéressant et divers.</h5>
-                                <p><strong>Simon Hallay</strong>, Etudiant</p>
-                            </div>
-
-                            <div class="item">
-                                <h5>Site super instructif, j'ai appris beaucoup de choses sur la sécurité informatique</h5>
-                                <p><strong>Rami Morri</strong>, Développeur</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <nav id="footer">
         <div class="container">

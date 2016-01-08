@@ -17,12 +17,13 @@ DEBUG = True
 TEMPLATES[0]['OPTIONS']['debug'] = True
 # TEMPLATES[0]['OPTIONS']['string_if_invalid'] = '{{ %s }}'  # Some Django templates relies on this being the default
 
-ADMINS = (('John', 'john@example.com'), )  # Log email to console when DEBUG = False
+ADMINS = (( 'veran@intechinfo.fr'), )  # Log email to console when DEBUG = False
 
 SECRET_KEY = "DEV"
 
 ALLOWED_HOSTS = [
     '.tsc.itinet.fr',  # Allow domain and subdomains
+    'forum.tsc.itinet.fr',  # Allow domain and subdomains
 ]
 
 # INSTALLED_APPS.extend([

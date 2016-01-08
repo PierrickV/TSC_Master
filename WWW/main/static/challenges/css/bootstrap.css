@@ -1564,8 +1564,10 @@ pre code {
 .container {
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  /*modifie manuellement
+  margin-right:auto;
+  margin-left:auto;*/
+  margin-left: 180px;
 }
 @media (min-width: 768px) {
   .container {
@@ -5822,7 +5824,7 @@ button.close {
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
+    width: 800px;
     margin: 30px auto;
   }
   .modal-content {

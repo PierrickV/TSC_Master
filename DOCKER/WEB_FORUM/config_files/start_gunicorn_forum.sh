@@ -6,7 +6,7 @@ BIND=127.0.0.1:8080
 USER=root
 GROUP=webapps
 NUM_WORKERS=3
-DJANGO_SETTINGS_MODULE=project.settings.prod
+DJANGO_SETTINGS_MODULE=project.settings.de
 DJANGO_WSGI_MODULE=project.wsgi
 SECRET_KEY="2J9r9mtbm4BdRmcV4ExgVzEbKzkW4W7V8EUYm9cMQ8UGu"
 

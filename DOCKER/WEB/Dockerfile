@@ -69,3 +69,4 @@ COPY /config_files/supervisord_nginx_gunicorn.conf /etc/supervisor/conf.d/superv
 
 #CMD /bin/bash
 CMD ["/usr/bin/supervisord"]
+

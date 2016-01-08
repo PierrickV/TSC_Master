@@ -13,4 +13,5 @@ docker run -it \
     -p 443:443 \
     -p 80:80 \
     --link tsc_database \
+    --link tsc_web_forum \
     -d tsc/master:Web

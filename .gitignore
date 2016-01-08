@@ -2,6 +2,3 @@
 .idea/
 __pycache__/
 *.pyc
-DOCKER/start_database.sh
-DOCKER/start_hub_private.sh
-DOCKER/start_web.sh

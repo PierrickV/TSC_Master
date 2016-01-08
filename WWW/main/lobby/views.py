@@ -58,3 +58,17 @@ def subscribe(request):
 		return render(request, 'lobby/home.html', {})
 	else:
 		return render(request, 'lobby/base.html', {})
+
+def eventform(request):
+	if request.user.is_authenticated():
+		return render(request, 'lobby/eventform.html', {})
+	else:
+		return render(request, 'lobby/base.html', locals())
+
+
+def participate(request):
+	firstname = request.POST.get('firstname')
+	lastname = request.POST.get('lastname')
+
+	
+	return render(request, 'lobby/home.html', {})

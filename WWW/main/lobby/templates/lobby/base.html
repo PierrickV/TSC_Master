@@ -274,21 +274,16 @@
                         <hr>
                     </div>
                 </div>
-                <div id="clients" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <br></br><br></br>
-                    </div>
-                    <div class="item">
-                        <br></br><br></br>
-                    </div>
-                    <div class="item">
-                        <br></br><br></br>
-                    </div>
-                    <div class="item">
-                        <br></br><br></br>
-                    </div>
-                </div>
-
+                <div class="space"></div>
+                    Concours de sécurité informatique<br>
+                    74 bis avenue Maurice Thorez<br>
+                    94200 Ivry-sur-seine<br><br>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "lobby.views.eventform" %}" class="btn btn-lg btn-primary"></span> Participer à l'évènement</a>
+                    {% else %}
+                    <a data-toggle="modal" data-target="#myModal" class="btn btn-lg btn-primary"></span> Participer à l'évènement</a>
+                    {% endif %}
+                <br><br><br>
             </div>
         </div>
     </div>

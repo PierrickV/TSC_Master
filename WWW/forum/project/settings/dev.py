@@ -23,7 +23,6 @@ SECRET_KEY = "DEV"
 
 ALLOWED_HOSTS = [
     '.tsc.itinet.fr',  # Allow domain and subdomains
-    'forum.tsc.itinet.fr',  # Allow domain and subdomains
 ]
 
 # INSTALLED_APPS.extend([

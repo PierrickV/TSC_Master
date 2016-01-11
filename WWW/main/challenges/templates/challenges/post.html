@@ -76,7 +76,7 @@
                         <div class="clearfix"></div>
                         <medium><em>L'équipe Tardigrade Security Challenge validera votre challenge dans les 48h.</em></medium>            
                     </div>
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" name="post" action="{% url "challenges.views.add" %}">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" data-ajax="false" name="post" action="{% url "challenges.views.add" %}">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-4"></div>
@@ -125,7 +125,7 @@
                                     <label for="exampleInputType">Type de challenge</label>
                                     <select name="typeadd" class="form-control" id="exampleInputType" >
                                         <option value="url">URL</option>
-                                        <option value="zip">Fichier Zip</option>
+                                        <option value="zip" selected>Fichier Zip</option>
                                     </select>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputLink">Votre challenge</label>
                                     <div id = "default">
-                                        <input type='text' name="challenge" class='form-control'>
+                                        <input type='file' name="challenge" class='form-control'>
                                     </div>
                                     <div id = "link">
                                     </div>

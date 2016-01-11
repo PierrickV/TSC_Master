@@ -570,3 +570,10 @@ nav#footer p{
 	background: #FCAC45;
 	border-color: #FCAC45;
 	color: #ffffff;
+}
+
+table{
+	position: absolute;
+	left : 50px;
+	top : 300px;
+}

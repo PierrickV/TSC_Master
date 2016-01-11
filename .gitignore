@@ -1,7 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
-.idea/
-__pycache__/
+db.sqlite3
+.idea
 *.pyc
-DOCKER/start_database.sh
-DOCKER/start_hub_private.sh
-DOCKER/start_web.sh
+ __pycache__/

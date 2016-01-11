@@ -12,8 +12,8 @@ docker run \
         -e MYSQL_USER="django"  \
         -e MYSQL_PASSWORD="django"  \
         -e MYSQL_DATABASE="tsc_database"  \
-        -v /home/alababa/mysql:/var/lib/mysql/:rw \
-        -v /home/alababa/git/tardigrade_security_challenge/DOCKER/DATABASE/config_files/:/etc/mysql/:rw \
+        -v ~/mysql:/var/lib/mysql/:rw \
+        -v ~/git/tardigrade_security_challenge/DOCKER/DATABASE/config_files/:/etc/mysql/:rw \
         -p 127.0.0.1:3306:3306 \
         -d mysql
 

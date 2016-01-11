@@ -23,9 +23,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['forum.tsc.itinet.fr','localhost', '127.0.0.1',]
 
-DEFAULT_FROM_EMAIL = 'webmaster@localhost'  # 'MyForum <noreply@example.com>'
-SERVER_EMAIL = DEFAULT_FROM_EMAIL  # For error notifications
-
 # Extend the Spirit installed apps
 # Check out the .base.py file for more examples
 INSTALLED_APPS.extend([
@@ -45,6 +42,12 @@ DATABASES = {
 		'PORT': '3306',                  # ... et si elle utilise un autre port que celui par défaut
     }
 }
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'noreply.tsc@gmail.com'
+EMAIL_HOST_PASSWORD = '7486bc89c753eabe273d6063d174f97d'
 
 
 # These are all the languages Spirit provides.

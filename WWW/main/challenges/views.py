@@ -33,7 +33,7 @@ def add(request):
 			fichier = request.FILES['challenge']
 			name = request.FILES['challenge'].name
 			#shutil.move(fichier, '/nv_challenge')
-			new_challenge = Challenges(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = name, points = '10')
+			new_challenge = Challenges(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = name, points = '10', file=request.FILES['challenge'].name)
 			new_challenge.save()
 		else:
 			typeadd = '3'

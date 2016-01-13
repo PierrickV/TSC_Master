@@ -48,7 +48,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url "lobby.views.home" %}" class="page-scroll">Accueil</a></li>
+            <li><a href="http://forum.tsc.itinet.fr" class="page-scroll">Forum</a></li>
             <li><a href="{% url "challenges.views.home" %}" class="page-scroll">Challenges</a></li>
             <li><a href="{% url "profil.views.myprofil" %}" class="page-scroll">Profil</a>
             </li>
@@ -73,23 +73,16 @@
                 {% block description %}<medium><em>Ces épreuves vous permettront de vous améliorer.</em></medium>{% endblock %}
             </div>
             <div class="space"></div>
-            <div class="row">
-                <div class="container">        
+            <div class="row">   
                 {% block ep_description %}                
                 Description
                 {% endblock %}
-                </div>
                 <br><br><br>
-                <div class="container">  
                 {% block ep_indice %}      
                 Indice de l'épreuve
                 {% endblock %}
-                </div>
                 <br><br><br>
-                {% block ep_button %}
-                <div class="container">        
-                <button type="button" class="btn btn-success">Acceder à l'épreuve</button>
-                </div>
+                {% block ep_button %}     
                 {% endblock %}
                 <br><br><br><br><br><br><br><br>
         </div>

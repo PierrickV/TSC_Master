@@ -15,37 +15,6 @@ from spirit.settings import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
-# Quick-start development settings - unsuitable for production
-
-# Application definition
-
-# Extend the Spirit installed apps.
-# Check out the spirit.settings.py so you do not end up with duplicated apps.
-INSTALLED_APPS.extend([
-    # 'my_app1',
-    # 'my_app2',
-])
-
-# same here, check out the spirit.settings.py
-MIDDLEWARE_CLASSES.extend([
-    # 'my_middleware1',
-    # 'my_middleware2',
-])
-
-# same here
-TEMPLATES[0]['OPTIONS']['context_processors'].extend([
-    # 'my_template_proc1',
-    # 'my_template_proc2',
-])
-
-# same here (we update the Spirit caches)
-CACHES.update({
-    # 'default': {
-    #   'BACKEND': 'my.backend.path',
-    # },
-})
-
-
 ROOT_URLCONF = 'project.urls'
 
 WSGI_APPLICATION = 'project.wsgi.application'
@@ -111,3 +80,38 @@ LOGGING = {
         },
     }
 }
+
+
+
+# These are all the languages Spirit provides.
+# https://www.transifex.com/projects/p/spirit/
+gettext_noop = lambda s: s
+LANGUAGES = [
+    ('de', gettext_noop('German')),
+    ('en', gettext_noop('English')),
+    ('es', gettext_noop('Spanish')),
+    ('fr', gettext_noop('French')),
+    ('hu', gettext_noop('Hungarian')),
+    ('pl', gettext_noop('Polish')),
+    ('pl-pl', gettext_noop('Poland Polish')),
+    ('ru', gettext_noop('Russian')),
+    ('sv', gettext_noop('Swedish')),
+    ('tr', gettext_noop('Turkish')),
+    ('zh-hans', gettext_noop('Simplified Chinese')),
+]
+
+# Default language
+LANGUAGE_CODE = 'fr'
+
+# Keep templates in memory
+del TEMPLATES[0]['APP_DIRS']
+TEMPLATES[0]['OPTIONS']['loaders'] = [
+    ('django.template.loaders.cached.Loader', (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    )),
+]
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+]

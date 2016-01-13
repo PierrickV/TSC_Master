@@ -48,7 +48,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url "lobby.views.home" %}" class="page-scroll">Accueil</a></li>
+            <li><a href="http://forum.tsc.itinet.fr" class="page-scroll">Forum</a></li>
             <li><a href="{% url "challenges.views.home" %}" class="page-scroll">Challenges</a></li>
             <li><a href="{% url "profil.views.myprofil" %}" class="page-scroll">Profil</a>
             </li>
@@ -82,48 +82,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/check.png' %}" alt="check" height="15" width="15"></td>
-                        <td>SQL Injection</td>
-                        <td>10</td>
-                        <td>1/5</td>
-                        <td><a href="{% url "profil.views.profil" %}">Alababa</a></td>
-                      </tr>
+                    {% for key in challenges %}
                       <tr>
                         <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>Javascript - Authentification</td>
-                        <td>15</td>
-                        <td>2/5</td>
-                        <td><a href="#">Pierrick</a></td>
+                        <td><a href="{% url 'web-ep' key.id %}">{{ key.name }}</a></td>
+                        <td>{{ key.points }}</td>
+                        <td>{{ key.level }}</td>
+                        <td><a href="{% url "profil.views.profil" %}">{{ key.creator }}</a></td>
                       </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>SQL Injection</td>
-                        <td>10</td>
-                        <td>1/5</td>
-                        <td><a href="#">Alababa</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>Javascript - Authentification</td>
-                        <td>15</td>
-                        <td>2/5</td>
-                        <td><a href="#">Pierrick</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>SQL Injection</td>
-                        <td>10</td>
-                        <td>1/5</td>
-                        <td><a href="#">Alababa</a></td>
-                      </tr>
-                      <tr>
-                        <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
-                        <td>Javascript - Authentification</td>
-                        <td>15</td>
-                        <td>2/5</td>
-                        <td><a href="#">Pierrick</a></td>
-                      </tr>
+                    {% endfor %}
                     </tbody>
                   </table>
                 </div>

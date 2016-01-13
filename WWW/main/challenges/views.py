@@ -52,13 +52,9 @@ def add(request):
 
 def web(request):
 	challenges = Challenges.objects.filter(category = 'Web')
-<<<<<<< HEAD
-	challenges = challenges.order_by('level')
-=======
 	#challenges = challenges.order_by('level')
 	for key in challenges:
 		challenges.name = challenges.name.replace("_", " ")
->>>>>>> master
 	
 	return render(request, 'challenges/web.html', locals())
 

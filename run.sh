@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Démarrage du conteneur MYSQL"
-../start_database.sh
+$(pwd)/DOCKER/start_database.sh
 
 #Construction des images
 echo "Construction des images web"

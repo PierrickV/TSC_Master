@@ -84,6 +84,8 @@ TEMPLATES = [
 #FILE_UPLOAD_MAX_MEMORY_SIZE = '10240' #10Ko
 
 FILE_UPLOAD_TEMP_DIR = '/home/alababa/nv_challenges/'
+MEDIA_ROOT = '/home/alababa/nv_challenges/'
+MEDIA_URL = '/home/alababa/nv_challenges/'
 
 MEDIA_ROOT = '/nv_challenges/'
 MEDIA_URL = '/nv_challenges/'

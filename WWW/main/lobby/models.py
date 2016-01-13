@@ -38,7 +38,7 @@ class Events(models.Model):
    description = models.TextField(null=True)
    place = models.CharField(max_length=40)
    training_event = models.BooleanField()
-   date_start = models.DateField(auto_now_add=True, auto_now=False)
+   date_start = models.DateField(auto_now_add=False, auto_now=False)
    date_end = models.DateField(auto_now_add=False, auto_now=False)
 
 class Event_Challenge(models.Model):

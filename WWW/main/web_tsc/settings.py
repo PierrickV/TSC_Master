@@ -87,6 +87,9 @@ FILE_UPLOAD_TEMP_DIR = '/home/alababa/nv_challenges/'
 MEDIA_ROOT = '/home/alababa/nv_challenges/'
 MEDIA_URL = '/home/alababa/nv_challenges/'
 
+MEDIA_ROOT = '/nv_challenges/'
+MEDIA_URL = '/nv_challenges/'
+
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'

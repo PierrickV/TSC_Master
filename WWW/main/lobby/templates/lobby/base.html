@@ -48,7 +48,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url "lobby.views.home" %}" class="page-scroll">Accueil</a></li>
+            <li><a href="http://forum.tsc.itinet.fr" class="page-scroll">Forum</a></li>
             <li><a href="{% url "challenges.views.home" %}" class="page-scroll">Challenges</a></li>
             <li>
                 {% block nav-right %}<a class="btn btn-lg" data-toggle="modal" data-target="#myModal">Connexion</a> {% endblock %}
@@ -279,7 +279,7 @@
                     74 bis avenue Maurice Thorez<br>
                     94200 Ivry-sur-seine<br><br>
                     {% if request.user.is_authenticated %}
-                    <a href="{% url "lobby.views.eventform" %}" class="btn btn-lg btn-primary"></span> Participer à l'évènement</a>
+                    <a href="{% url "lobby.views.participate" %}" class="btn btn-lg btn-primary"></span> Participer à l'évènement</a>
                     {% else %}
                     <a data-toggle="modal" data-target="#myModal" class="btn btn-lg btn-primary"></span> Participer à l'évènement</a>
                     {% endif %}

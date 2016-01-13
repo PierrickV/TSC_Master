@@ -15,7 +15,7 @@ class Profil(models.Model):
    avatar = models.CharField(max_length=100, null=True)
    description = models.TextField(null=True)
 
-class Challenges(models.Model):
+class Challenge(models.Model):
    #challenge_id ajoute automatiquement par Django
    id = models.AutoField(primary_key=True)
    name = models.CharField(max_length=40)
@@ -31,7 +31,7 @@ class Challenges(models.Model):
    file = models.FileField(null=True)
    points = models.PositiveSmallIntegerField()
 
-class Events(models.Model):
+class Event(models.Model):
    #event_id ajoute automatiquement par Django
    id = models.AutoField(primary_key=True)
    name = models.CharField(max_length=40)
@@ -44,8 +44,8 @@ class Events(models.Model):
 class Event_Challenge(models.Model):
    #event_challenge_id ajoute automatiquement par Django
    id = models.AutoField(primary_key=True)
-   challenge_id = models.ForeignKey('Challenges')
-   event_id = models.ForeignKey('Events')
+   challenge_id = models.ForeignKey('Challenge')
+   event_id = models.ForeignKey('Event')
 
 class UEC(models.Model):
    id = models.AutoField(primary_key=True)

@@ -1,5 +1,3 @@
-
-
 #web_tsc URL Configuration
 
 from django.conf.urls import include, url
@@ -17,4 +15,3 @@ urlpatterns = [
 	 url(r'^profil/', include('profil.urls')),
      url(r'^admin/', include(admin.site.urls))
 ]
-

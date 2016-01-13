@@ -15,5 +15,8 @@ docker run -it \
         -d tsc/master:Web_forum
 
 echo ".. mise à jours de la base de données"
+docker exec -ti forum.tsc.itinet.fr /var/www/forum/manage.py createcachetable spirit_cache
 docker exec -ti forum.tsc.itinet.fr /var/www/forum/manage.py syncdb
 docker exec -ti forum.tsc.itinet.fr /var/www/forum/manage.py makemigrations
+docker exec -ti forum.tsc.itinet.fr /var/www/forum/manage.py migrate
+#docker exec -ti forum.tsc.itinet.fr /var/www/forum/manage.py collectstatic

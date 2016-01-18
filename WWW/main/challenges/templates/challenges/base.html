@@ -85,7 +85,12 @@
                     {% for key in challenges %}
                       <tr>
                         <td><img src="{% static 'challenges/img/error.png' %}" alt="error" height="15" width="15"></td>
+                        {% if key.category == "Web" %}
                         <td><a href="{% url 'web-ep' key.id %}">{{ key.name }}</a></td>
+                        {% elif key.category == "Application" %}
+                        <td><a href="{% url 'application-ep' key.id %}">{{ key.name }}</a></td>
+                        {% endif %}
+
                         <td>{{ key.points }}</td>
                         <td>{{ key.level }}</td>
                         <td><a href="{% url "profil.views.profil" %}">{{ key.creator }}</a></td>

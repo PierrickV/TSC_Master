@@ -28,6 +28,7 @@ class Challenge(models.Model):
    clue = models.CharField(max_length=40)
    type_upload = models.PositiveSmallIntegerField()
    url = models.CharField(max_length=100, null=True)
+   token = models.CharField(max_length=40, null=True)
    file = models.FileField(null=True)
    points = models.PositiveSmallIntegerField()
 

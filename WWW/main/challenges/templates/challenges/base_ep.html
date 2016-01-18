@@ -73,7 +73,11 @@
                 {% block description %}<medium><em>Ces épreuves vous permettront de vous améliorer.</em></medium>{% endblock %}
             </div>
             <div class="space"></div>
-            <div class="row">   
+            <div class="row">
+                {% block ep_token %}
+                Token
+                {% endblock %}
+                <br><br><br>
                 {% block ep_description %}                
                 Description
                 {% endblock %}

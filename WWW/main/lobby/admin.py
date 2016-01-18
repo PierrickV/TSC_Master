@@ -11,7 +11,7 @@ class ProfilAdmin(admin.ModelAdmin):
    list_display   = ('username', 'status', 'role', 'description')
 
 class ChallengeAdmin(admin.ModelAdmin):
-   list_display   = ('name', 'creator', 'description', 'category', 'level', 'status','process','clue',)
+   list_display   = ('name', 'creator', 'description', 'file', 'category', 'level', 'status','process','clue','token')
 
 class EventAdmin(admin.ModelAdmin):
    list_display   = ('name', 'description', 'place', 'training_event', 'date_start','date_end')

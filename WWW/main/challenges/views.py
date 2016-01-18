@@ -46,31 +46,6 @@ def add(request):
 
 			new_challenge = Challenge(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, file = fichier, url = url, points = '10', token = 'AAAAA')
 			new_challenge.save()
-
-			#Envoi a virus total
-			msg = MIMEMultipart()
-
-			mfrom = 'abarthelemy@intechinfo.fr'
-			mto = 'scan@virustotal.com'
-
-			msg['Subject'] = 'SCAN'
-			msg['From'] = mfrom
-			msg['To'] = mto
-			msg['Date'] = formatdate()
-
-			# Open the file to scan in binary mode
-			fp = open('/nv_challenges/', 'rb')
-			attachment = MIMEBase('application', 'octet-stream')
-			attachment.set_payload(fp.read())
-			encoders.encode_base64(attachment)
-			attachment.add_header('Content-Disposition', 'attachment; filename="filename"')
-			fp.close()
-			msg.attach(attachment)
-
-			# Send the email via your own SMTP server.
-			s = smtplib.SMTP('smtp.yourserver.com')
-			s.sendmail(mfrom, mto, msg.as_string())
-			s.quit()
 		else:
 			typeadd = '3'
 

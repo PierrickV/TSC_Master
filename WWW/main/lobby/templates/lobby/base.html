@@ -275,9 +275,9 @@
                     </div>
                 </div>
                 <div class="space"></div>
-                    Concours de sécurité informatique<br>
-                    74 bis avenue Maurice Thorez<br>
-                    94200 Ivry-sur-seine<br><br>
+                    {{ event.name }}<br>
+                    {{ event.place }}<br>
+                    <br>
                     {% if request.user.is_authenticated %}
                     <a href="{% url "lobby.views.participate" %}" class="btn btn-lg btn-primary"></span> Participer à l'évènement</a>
                     {% else %}

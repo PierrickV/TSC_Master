@@ -3,10 +3,14 @@ from django.shortcuts import render, render_to_response, redirect
 from django.core.context_processors import csrf
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from lobby.models import Profil
+from lobby.models import *
+from django.db.models import Q
 
 def home(request):
 	if request.user.is_authenticated():
+		event = Event.objects.filter(training_event=False) 
+		#event = event.latest('id')
+
 		return render(request, 'lobby/home.html', locals())
 	else:
 		return render(request, 'lobby/base.html', locals())

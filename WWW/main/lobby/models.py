@@ -54,3 +54,14 @@ class UEC(models.Model):
    event_challenge_id = models.ForeignKey('Event_Challenge')
    status_challenge = models.BooleanField()
    score_event = models.PositiveSmallIntegerField()
+
+'''
+Rajout de la possibilite d'ajoute une categorie
+
+class Challenge(models.Model):
+   #challenge_id ajoute automatiquement par Django
+   id =  models.AutoField(primary_key=True)
+   name = models.CharField(max_length=40)
+   description = models.CharField(max_length=40)
+   image =
+'''

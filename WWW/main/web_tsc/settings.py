@@ -83,16 +83,8 @@ TEMPLATES = [
 
 #FILE_UPLOAD_MAX_MEMORY_SIZE = '10240' #10Ko
 
-FILE_UPLOAD_TEMP_DIR = '/home/alababa/nv_challenges/'
-MEDIA_ROOT = '/home/alababa/nv_challenges/'
-MEDIA_URL = '/home/alababa/nv_challenges/'
-
-MEDIA_ROOT = '/nv_challenges/'
-MEDIA_URL = '/nv_challenges/'
-
-MEDIA_ROOT = '/nv_challenges/'
-MEDIA_URL = '/nv_challenges/'
-
+MEDIA_ROOT = '/var/www/main/media/'
+MEDIA_URL = '/var/www/main/media/'
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'

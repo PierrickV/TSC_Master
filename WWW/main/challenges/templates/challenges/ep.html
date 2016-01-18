@@ -5,6 +5,25 @@
 {% block points %}<h2> Points : {{ epreuve.points }} </h2>{% endblock %}
 {% block difficulté %}<h2> Difficulté : {{ epreuve.level }}</h2>{% endblock %}
 
+{% block ep_token %}
+<div class="col-md-4"></div>
+<div class="col-md-3">
+<div class="form-group">
+<form method="POST" action="{% url "challenges.views.valid" %}">
+{% csrf_token %}
+<input type="text" class="form-control input-md" name="token" placeholder="Copier le token">
+<input type="hidden" name="id" value="{{epreuve.id}}">
+<input type="hidden" name="name" value="{{epreuve.name}}">
+</div>
+</div>
+<div class="col-md-1">
+	<input type="submit" class="btn btn-success">
+</form>
+</div>
+<br><br><br>
+{% endblock %}
+
+
 {% block ep_description %}                
     <h2>Description</h2><br><br>
 {{ epreuve.description }}
@@ -21,7 +40,7 @@
 {% block ep_button %}
 <div class="col-md-12">      
 
-<button class="btn btn-success" onclick="dlredirect()">Accéder à l'épreuve</button>
+<button class="btn btn-default" onclick="dlredirect()">Accéder à l'épreuve</button>
 
 <script type="text/javascript">
 function dlredirect(){

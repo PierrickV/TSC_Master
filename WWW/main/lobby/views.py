@@ -70,8 +70,8 @@ def subscribe(request):
 def participate_ev(request, id):
 	if request.user.is_authenticated():
 		#username = request.user.username
-		event = Event.objects.get(id=id)
+		event = Event.objects.filter(training_event=True).order_by('-id')[0]
 		
-		return render(request, 'lobby/home.html', {})
+		return render(request, 'lobby/participate.html', {})
 	else:
 		return render(request, 'lobby/base.html', locals())

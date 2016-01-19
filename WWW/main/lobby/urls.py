@@ -8,7 +8,7 @@ urlpatterns = patterns('lobby.views',
     url(r'connect/$', 'connect'),
     url(r'subscribe/$', 'subscribe'),
     url(r'disconnect/$', 'disconnect'),
-    url(r'participate/(?P<id>[0-9]+)/$', 'participate_ev', name='participate-ev'),	
+    url(r'participate/(?P<id>\d{1,})/$', 'participate_ev', name='participate-ev'),	
 )
 
 #urlpatterns = [

@@ -32,12 +32,6 @@ class Challenge(models.Model):
     file = models.FileField(null=True)
     points = models.PositiveSmallIntegerField()
 
-    def get_name(self):
-        return self.name
-
-    def get_id(self):
-        return self.id
-
 class Event(models.Model):
    #event_id ajoute automatiquement par Django
    id = models.AutoField(primary_key=True)

@@ -8,8 +8,12 @@ from django.db.models import Q
 
 def home(request):
 	if request.user.is_authenticated():
-		event = Event.objects.filter(training_event=False) 
+		#last = Event.objects.latest('id')
+		#event = last_event.exclude(training_event=True)
+		#event = Event.objects.filter(training_event=False)
 		#event = event.latest('id')
+		#event = Event.objects.get(id = last)
+		event = Event.objects.filter(training_event=True).order_by('-id')[0]
 
 		return render(request, 'lobby/home.html', locals())
 	else:
@@ -63,9 +67,11 @@ def subscribe(request):
 	else:
 		return render(request, 'lobby/base.html', {})
 
-def participate(request):
+def participate_ev(request, id):
 	if request.user.is_authenticated():
-		username = request.user.username
+		#username = request.user.username
+		event = Event.objects.get(id=id)
+		
 		return render(request, 'lobby/home.html', {})
 	else:
 		return render(request, 'lobby/base.html', locals())

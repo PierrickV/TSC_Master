@@ -89,6 +89,20 @@
                         <td><a href="{% url 'web-ep' key.id %}">{{ key.name }}</a></td>
                         {% elif key.category == "Application" %}
                         <td><a href="{% url 'application-ep' key.id %}">{{ key.name }}</a></td>
+                        {% elif key.category == "Network" %}
+                        <td><a href="{% url 'network-ep' key.id %}">{{ key.name }}</a></td>
+                        {% elif key.category == "Forensic" %}
+                        <td><a href="{% url 'forensic-ep' key.id %}">{{ key.name }}</a></td>
+                        {% elif key.category == "Programming" %}
+                        <td><a href="{% url 'programming-ep' key.id %}">{{ key.name }}</a></td>
+                        {% elif key.category == "Steganography" %}
+                        <td><a href="{% url 'steganography-ep' key.id %}">{{ key.name }}</a></td>
+                        {% elif key.category == "Reverse" %}
+                        <td><a href="{% url 'reverse-ep' key.id %}">{{ key.name }}</a></td>
+                        {% elif key.category == "Realist" %}
+                        <td><a href="{% url 'realist-ep' key.id %}">{{ key.name }}</a></td>
+                        {% else %}
+                        <td></td>
                         {% endif %}
 
                         <td>{{ key.points }}</td>

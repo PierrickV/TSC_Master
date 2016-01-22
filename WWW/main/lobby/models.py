@@ -16,21 +16,22 @@ class Profil(models.Model):
    description = models.TextField(null=True)
 
 class Challenge(models.Model):
-    #challenge_id ajoute automatiquement par Django
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=40)
-    creator = models.CharField(max_length=40)
-    description = models.TextField(null=True)
-    category = models.CharField(max_length=40)
-    level = models.PositiveSmallIntegerField()
-    status = models.CharField(max_length=40)
-    process = models.TextField(null=True)
-    clue = models.CharField(max_length=40)
-    type_upload = models.PositiveSmallIntegerField()
-    url = models.CharField(max_length=100, null=True)
-    token = models.CharField(max_length=40, null=True)
-    file = models.FileField(null=True)
-    points = models.PositiveSmallIntegerField()
+   #challenge_id ajoute automatiquement par Django
+   id = models.AutoField(primary_key=True)
+   name = models.CharField(max_length=40)
+   creator = models.CharField(max_length=40)
+   description = models.TextField(null=True)
+   category = models.CharField(max_length=40)
+   level = models.PositiveSmallIntegerField()
+   status = models.CharField(max_length=40)
+   process = models.TextField(null=True)
+   clue = models.CharField(max_length=40)
+   type_upload = models.PositiveSmallIntegerField()
+   url = models.CharField(max_length=100, null=True)
+   token = models.CharField(max_length=40, null=True)
+   docker = models.BooleanField()
+   file = models.FileField(null=True)
+   points = models.PositiveSmallIntegerField()
 
 class Event(models.Model):
    #event_id ajoute automatiquement par Django
@@ -47,6 +48,11 @@ class Event_Challenge(models.Model):
    id = models.AutoField(primary_key=True)
    challenge_id = models.ForeignKey('Challenge')
    event_id = models.ForeignKey('Event')
+
+class UE(models.Model):
+   id = models.AutoField(primary_key=True)
+   user_id = models.PositiveSmallIntegerField()
+   event_id = models.PositiveSmallIntegerField()
 
 class UEC(models.Model):
    id = models.AutoField(primary_key=True)

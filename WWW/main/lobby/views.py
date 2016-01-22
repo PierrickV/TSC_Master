@@ -3,10 +3,19 @@ from django.shortcuts import render, render_to_response, redirect
 from django.core.context_processors import csrf
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from lobby.models import Profil
+from lobby.models import *
+from django.db.models import Q
 
 def home(request):
+	event = Event.objects.filter(training_event=True).order_by('-id')[0]
+	
 	if request.user.is_authenticated():
+		#last = Event.objects.latest('id')
+		#event = last_event.exclude(training_event=True)
+		#event = Event.objects.filter(training_event=False)
+		#event = event.latest('id')
+		#event = Event.objects.get(id = last)
+
 		return render(request, 'lobby/home.html', locals())
 	else:
 		return render(request, 'lobby/base.html', locals())
@@ -17,6 +26,7 @@ def connect(request):
 	password = request.POST.get('password')
 
 	user = authenticate(username=username, password=password)
+	event = Event.objects.filter(training_event=True).order_by('-id')[0]
 
 	if user is not None:
 		login(request, user)
@@ -26,6 +36,8 @@ def connect(request):
 
 
 def disconnect(request):
+	event = Event.objects.filter(training_event=True).order_by('-id')[0]
+
 	if request.user.is_authenticated():
 		logout(request)
 		response = logout(request, next_page=reverse('app.home.views.home'))
@@ -43,6 +55,8 @@ def subscribe(request):
 	password = request.POST.get('password')
 	password2 = request.POST.get('password2')
 	description = request.POST.get('description')
+
+	event = Event.objects.filter(training_event=True).order_by('-id')[0]
 	
 	new_user = User.objects.create_user(username=newusername, email=email, password=password)
 	new_user.set_password(password)
@@ -59,9 +73,17 @@ def subscribe(request):
 	else:
 		return render(request, 'lobby/base.html', {})
 
-def participate(request):
+def participate_ev(request, id):
+	event = Event.objects.filter(training_event=True).order_by('-id')[0]
+
 	if request.user.is_authenticated():
 		username = request.user.username
-		return render(request, 'lobby/home.html', {})
+
+		user_entry = Profil.objects.get(username= username)
+
+		participation = UE(user_id= user_entry.id, event_id= event.id)
+		participation.save()
+		
+		return render(request, 'lobby/participate.html', {})
 	else:
 		return render(request, 'lobby/base.html', locals())

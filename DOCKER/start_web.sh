@@ -20,6 +20,7 @@ docker run -it \
         -d tsc/master:Web
 
 echo ".. mise à jours de la base de données"
-docker exec -ti tsc_web /var/www/main/manage.py syncdb
 docker exec -ti tsc_web /var/www/main/manage.py makemigrations
-docker exec -ti tsc_web /var/www/forum/manage.py migrate
+
+docker exec -ti tsc_web /var/www/main/manage.py syncdb
+docker exec -ti forum.tsc.itinet.fr /var/www/forum/manage.py migrate

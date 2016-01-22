@@ -86,6 +86,7 @@ TEMPLATES = [
 MEDIA_ROOT = '/media/'
 MEDIA_URL = '/media/'
 
+
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 

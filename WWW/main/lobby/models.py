@@ -29,6 +29,7 @@ class Challenge(models.Model):
    type_upload = models.PositiveSmallIntegerField()
    url = models.CharField(max_length=100, null=True)
    token = models.CharField(max_length=40, null=True)
+   docker = models.BooleanField()
    file = models.FileField(null=True)
    points = models.PositiveSmallIntegerField()
 
@@ -47,6 +48,11 @@ class Event_Challenge(models.Model):
    id = models.AutoField(primary_key=True)
    challenge_id = models.ForeignKey('Challenge')
    event_id = models.ForeignKey('Event')
+
+class UE(models.Model):
+   id = models.AutoField(primary_key=True)
+   user_id = models.PositiveSmallIntegerField()
+   event_id = models.PositiveSmallIntegerField()
 
 class UEC(models.Model):
    id = models.AutoField(primary_key=True)

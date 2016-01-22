@@ -32,19 +32,24 @@ def add(request):
 		description = request.POST.get('description') 
 		indice = request.POST.get('indice')
 		solution = request.POST.get('solution')
+		docker = request.POST.get('docker')
 
 		if typeadd == 'url':
 			typeadd = '1'
 			challenge = request.POST.get('challenge')
-			new_challenge = Challenge(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = challenge, points = '10', token = 'AAAAA')
+			new_challenge = Challenge(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, url = challenge, points = '10', token = 'AAAAA', docker = '0')
 			new_challenge.save()
 		elif typeadd == 'zip':
 			typeadd = '2'
 			fichier = request.FILES['challenge']
 			fichier.name = name.replace(" ", "_") + '.zip'
 			url = 'dl.tsc.itinet.fr/' + category + '/' + fichier.name + '/'
+			
+			if docker == '1' :
+				new_challenge = Challenge(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, file = fichier, url = url, points = '10', token = 'AAAAA', docker = '1')
+			else:
+				new_challenge = Challenge(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, file = fichier, url = url, points = '10', token = 'AAAAA', docker = '0')
 
-			new_challenge = Challenge(name = name, creator = username, description = description, category = category, level = difficulty, type_upload = typeadd, status = 'prive', process = 'non_valide', clue = indice, file = fichier, url = url, points = '10', token = 'AAAAA')
 			new_challenge.save()
 		else:
 			typeadd = '3'

@@ -7,7 +7,7 @@ from lobby.models import *
 from django.db.models import Q
 
 def home(request):
-	event = Event.objects.filter(training_event=True).order_by('-id')[0]
+	event = Event.objects.filter(training_event=False).order_by('-id')[0]
 	
 	if request.user.is_authenticated():
 		#last = Event.objects.latest('id')
@@ -22,21 +22,22 @@ def home(request):
 
 
 def connect(request):
+	event = Event.objects.filter(training_event=False).order_by('-id')[0]
+
 	username = request.POST.get('username')
 	password = request.POST.get('password')
 
 	user = authenticate(username=username, password=password)
-	event = Event.objects.filter(training_event=True).order_by('-id')[0]
 
 	if user is not None:
 		login(request, user)
-		return render(request, 'lobby/home.html', {})
+		return render(request, 'lobby/home.html', locals())
 	else:
 		return render(request, 'lobby/base.html', locals())
 
 
 def disconnect(request):
-	event = Event.objects.filter(training_event=True).order_by('-id')[0]
+	event = Event.objects.filter(training_event=False).order_by('-id')[0]
 
 	if request.user.is_authenticated():
 		logout(request)
@@ -55,8 +56,6 @@ def subscribe(request):
 	password = request.POST.get('password')
 	password2 = request.POST.get('password2')
 	description = request.POST.get('description')
-
-	event = Event.objects.filter(training_event=True).order_by('-id')[0]
 	
 	new_user = User.objects.create_user(username=newusername, email=email, password=password)
 	new_user.set_password(password)
@@ -69,13 +68,13 @@ def subscribe(request):
 
 	if user is not None:
 		login(request, user)
-		return render(request, 'lobby/home.html', {})
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
+		return render(request, 'lobby/home.html', locals())
 	else:
-		return render(request, 'lobby/base.html', {})
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
+		return render(request, 'lobby/base.html', locals())
 
 def participate_ev(request, id):
-	event = Event.objects.filter(training_event=True).order_by('-id')[0]
-
 	if request.user.is_authenticated():
 		username = request.user.username
 
@@ -84,6 +83,8 @@ def participate_ev(request, id):
 		participation = UE(user_id= user_entry.id, event_id= event.id)
 		participation.save()
 		
-		return render(request, 'lobby/participate.html', {})
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
+		return render(request, 'lobby/participate.html', locals())
 	else:
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/base.html', locals())

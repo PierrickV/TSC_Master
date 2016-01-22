@@ -4,11 +4,11 @@ from django.db import models
 from django.contrib.auth.models import UserManager
 import os
 
-public_file_path = "validated/public/file/"
-private_file_path = "validated/private/file/"
+public_file_path = "./validated/public/file/"
+private_file_path = "./validated/private/file/"
 
-public_docker_path = "validated/public/docker/"
-private_docker_path = 'validated/private/docker/'
+public_docker_path = "./validated/public/docker/"
+private_docker_path = './validated/private/docker/'
 
 
 # Declaration des classes precisant l'affichage
@@ -31,10 +31,10 @@ class ChallengeAdmin(admin.ModelAdmin):
             dst_path = public_file_path + "%s" % filename
 
             self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
-            # os.rename(src_path ,dst_path)
-            # queryset.update(file=dst_path)
+            os.rename(src_path, dst_path)
+            queryset.update(file=dst_path)
 
-    make_valid_public.short_description = "Valider et garder secret"
+    make_valid_public.short_description = "Valider et rendre publique"
 
     # Valider et rendre prive
     def make_valid_private(self, request, queryset):
@@ -46,10 +46,9 @@ class ChallengeAdmin(admin.ModelAdmin):
             dst_path = private_file_path + "%s" % filename
 
             self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
-            # os.rename(src_path ,dst_path)
-            # queryset.update(file=dst_path)
+            os.rename(src_path, dst_path)
 
-    make_valid_private.short_description = "Valider et rendre publique"
+    make_valid_private.short_description = "Valider et garder secret"
 
     # Rendre prive
     def make_private(self, request, queryset):
@@ -61,10 +60,10 @@ class ChallengeAdmin(admin.ModelAdmin):
         dst_path = public_file_path + "%s" % filename
 
         self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
-        # os.rename(src_path ,dst_path)
-        # queryset.update(file=dst_path)
+        os.rename(src_path, dst_path)
+        queryset.update(file=dst_path)
 
-    make_private.short_description = "Rendre secret"
+    make_private.short_description = "Garder secret"
 
     # Rendre public
     def make_public(self, request, queryset):
@@ -76,8 +75,8 @@ class ChallengeAdmin(admin.ModelAdmin):
             dst_path = public_file_path + "%s" % filename
 
             self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
-            # os.rename(src_path ,dst_path)
-            # queryset.update(file=dst_path)
+            os.rename(src_path, dst_path)
+            queryset.update(file=dst_path)
 
     make_public.short_description = "Rendre public"
 

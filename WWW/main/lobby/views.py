@@ -7,17 +7,16 @@ from lobby.models import *
 from django.db.models import Q
 
 def home(request):
-	event = Event.objects.filter(training_event=False).order_by('-id')[0]
-	
 	if request.user.is_authenticated():
 		#last = Event.objects.latest('id')
 		#event = last_event.exclude(training_event=True)
 		#event = Event.objects.filter(training_event=False)
 		#event = event.latest('id')
 		#event = Event.objects.get(id = last)
-
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/home.html', locals())
 	else:
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/base.html', locals())
 
 
@@ -31,20 +30,22 @@ def connect(request):
 
 	if user is not None:
 		login(request, user)
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/home.html', locals())
 	else:
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/base.html', locals())
 
 
 def disconnect(request):
-	event = Event.objects.filter(training_event=False).order_by('-id')[0]
-
 	if request.user.is_authenticated():
 		logout(request)
 		response = logout(request, next_page=reverse('app.home.views.home'))
 		response.delete_cookie('sessionid')
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return response
 	else:
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/home.html', locals())
 
 

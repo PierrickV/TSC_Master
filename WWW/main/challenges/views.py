@@ -13,16 +13,13 @@ def home(request):
     return render(request, 'challenges/home.html', locals())
 
 def post(request):
-	event = Event.objects.filter(training_event=False).order_by('-id')[0]
-
 	if request.user.is_authenticated():
 		return render(request, 'challenges/post.html', locals())
 	else:
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/base.html', locals())
 
 def add(request):
-	event = Event.objects.filter(training_event=False).order_by('-id')[0]
-	
 	if request.user.is_authenticated():
 		username = request.user.username
 		category = request.POST.get('category')
@@ -61,6 +58,7 @@ def add(request):
 
 		return render(request, 'challenges/home.html', locals())
 	else:
+		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/base.html', locals())
 
 

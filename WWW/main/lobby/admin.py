@@ -63,7 +63,7 @@ class ChallengeAdmin(admin.ModelAdmin):
         os.rename(src_path, dst_path)
         queryset.update(file=dst_path)
 
-    make_private.short_description = "Garder secret"
+    make_private.short_description = "Rendre secret"
 
     # Rendre public
     def make_public(self, request, queryset):

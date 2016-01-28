@@ -4,4 +4,4 @@
 config.ini
 supervisord.log
 supervisord.pid
-build_web.sh
+build.sh

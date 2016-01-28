@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jlgnu0x7=axt@$de)wr$-(8(wru3)ra-b&*39trov9mt50@1@c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Un tuple qui énumère les personnes qui reçoivent les notifications d’erreurs dans le code

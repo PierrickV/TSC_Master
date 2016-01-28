@@ -18,7 +18,7 @@ class ProfilAdmin(admin.ModelAdmin):
 
 class ChallengeAdmin(admin.ModelAdmin):
     list_display = (
-    'name', 'creator', 'description', 'file', 'url', 'category', 'level', 'status', 'process', 'clue', 'token')
+        'name', 'creator', 'description', 'file', 'url', 'category', 'level', 'status', 'process', 'clue', 'token')
     actions = ['make_valid_public', 'make_valid_private', 'make_public', 'make_private']
 
     # Valider et rendre public
@@ -56,12 +56,12 @@ class ChallengeAdmin(admin.ModelAdmin):
         # Deplacement du fichier
         for key in queryset.values_list('file'):
             src_path = ''.join(key)  # tuple to string
-        filename = os.path.basename(src_path)
-        dst_path = public_file_path + "%s" % filename
+            filename = os.path.basename(src_path)
+            dst_path = public_file_path + "%s" % filename
 
-        self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
-        os.rename(src_path, dst_path)
-        queryset.update(file=dst_path)
+            self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
+            os.rename(src_path, dst_path)
+            queryset.update(file=dst_path)
 
     make_private.short_description = "Rendre secret"
 
@@ -79,6 +79,7 @@ class ChallengeAdmin(admin.ModelAdmin):
             queryset.update(file=dst_path)
 
     make_public.short_description = "Rendre public"
+
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'place', 'training_event', 'date_start', 'date_end')

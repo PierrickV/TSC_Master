@@ -2,7 +2,7 @@
 
 NAME="forum"
 DJANGODIR=/var/www/forum
-BIND=127.0.0.1:8080
+BIND=127.0.0.1:8000
 USER=root
 GROUP=webapps
 NUM_WORKERS=3

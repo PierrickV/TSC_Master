@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Pierrick VERAN - Tardigrade Security Challenge - 08/12/2015
+# This script is made to start all tsc's containers
 
 echo "Démarrage du conteneur MYSQL"
 $(pwd)/DOCKER/start_database.sh

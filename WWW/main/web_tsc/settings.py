@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jlgnu0x7=axt@$de)wr$-(8(wru3)ra-b&*39trov9mt50@1@c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 # Un tuple qui énumère les personnes qui reçoivent les notifications d’erreurs dans le code
@@ -84,7 +84,7 @@ TEMPLATES = [
 #FILE_UPLOAD_MAX_MEMORY_SIZE = '10240' #10Ko
 
 MEDIA_ROOT = '/var/www/main/media/'
-MEDIA_URL = ':var/www/main/media/'
+MEDIA_URL = '/var/www/main/media/'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -109,3 +109,4 @@ USE_L10N = True
 USE_TZ = True
 
 WSGI_APPLICATION = 'web_tsc.wsgi.application'
+

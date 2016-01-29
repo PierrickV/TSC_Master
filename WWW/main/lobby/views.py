@@ -81,8 +81,8 @@ def participate_ev(request, id):
 
 		user_entry = Profil.objects.get(username= username)
 
-		participation = UE(user_id= user_entry.id, event_id= event.id)
-		participation.save()
+		#participation = UE(user_id= user_entry.id, event_id= event.id)
+		#participation.save()
 		
 		event = Event.objects.filter(training_event=False).order_by('-id')[0]
 		return render(request, 'lobby/participate.html', locals())

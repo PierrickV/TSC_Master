@@ -24,59 +24,66 @@ class ChallengeAdmin(admin.ModelAdmin):
     # Valider et rendre public
     def make_valid_public(self, request, queryset):
         queryset.update(status='public')
+        queryset.update(process='valide')
         # Deplacement du fichier
-        for key in queryset.values_list('file'):
+        '''for key in queryset.values_list('file'):
             src_path = ''.join(key)  # tuple to string
             filename = os.path.basename(src_path)
             dst_path = public_file_path + "%s" % filename
 
             self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
             os.rename(src_path, dst_path)
-            queryset.update(file=dst_path)
+            queryset.update(file=dst_path)'''
 
     make_valid_public.short_description = "Valider et rendre publique"
 
     # Valider et rendre prive
     def make_valid_private(self, request, queryset):
         queryset.update(status='private')
+        queryset.update(process='valide')
         # Deplacement du fichier
-        for key in queryset.values_list('file'):
+        '''for key in queryset.values_list('file'):
             src_path = ''.join(key)  # tuple to string
             filename = os.path.basename(src_path)
             dst_path = private_file_path + "%s" % filename
 
             self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
-            os.rename(src_path, dst_path)
+            os.rename(src_path, dst_path)'''
 
-    make_valid_private.short_description = "Valider et garder secret"
+    make_valid_private.short_description = "Valider et rendre secret"
 
     # Rendre prive
     def make_private(self, request, queryset):
         queryset.update(status='private')
         # Deplacement du fichier
-        for key in queryset.values_list('file'):
+
+
+        '''for key in queryset.values_list('file'):
             src_path = ''.join(key)  # tuple to string
             filename = os.path.basename(src_path)
             dst_path = public_file_path + "%s" % filename
 
             self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
             os.rename(src_path, dst_path)
-            queryset.update(file=dst_path)
+            queryset.update(file=dst_path)'''
+
 
     make_private.short_description = "Rendre secret"
+
 
     # Rendre public
     def make_public(self, request, queryset):
         queryset.update(status='public')
         # Deplacement du fichier
-        for key in queryset.values_list('file'):
+        '''for key in queryset.values_list('file'):
             src_path = ''.join(key)  # tuple to string
             filename = os.path.basename(src_path)
             dst_path = public_file_path + "%s" % filename
 
             self.message_user(request, "moving %s from %s to %s" % (filename, src_path, dst_path,))
             os.rename(src_path, dst_path)
-            queryset.update(file=dst_path)
+            queryset.update(file=dst_path)'''
+
 
     make_public.short_description = "Rendre public"
 
